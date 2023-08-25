@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "tsup src --dts",
     "test": "vitest"
   },
   "keywords": [],
