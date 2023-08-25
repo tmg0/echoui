@@ -1,10 +1,8 @@
 import { defineComponent } from 'vue'
 import { useButton, type UseButtonProps } from './use-button'
 
-export interface ButtonProps extends UseButtonProps {}
-
-const Button = defineComponent({
-  setup (props: ButtonProps) {
+const ButtonGroup = defineComponent({
+  setup (props: UseButtonProps) {
     const { Component } = useButton(props)
 
     return (
@@ -15,4 +13,4 @@ const Button = defineComponent({
   }
 })
 
-export default Button
+export default ButtonGroup

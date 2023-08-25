@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup src --dts"
+    "dev": "tsup --watch",
+    "build": "tsup src --dts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
