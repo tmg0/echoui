@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo daemon clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@vitejs/plugin-vue": "^4.3.3",
+    "@vue/babel-plugin-jsx": "^1.1.5",
+    "@vue/tsconfig": "^0.4.0",
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.2",
+    "tsup": "^7.2.0",
+    "turbo": "latest",
+    "unplugin-vue-components": "^0.25.1",
+    "unplugin-vue-jsx": "^0.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.2",
+    "vitest": "^0.34.2",
+    "vue": "^3.3.4"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "name": "echo-ui"
+}
