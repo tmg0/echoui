@@ -10,9 +10,11 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt": "^3.7.0"
   },
   "dependencies": {
+    "@echo-ui/theme": "workspace:^0.0.1",
     "@echo-ui/vue": "workspace:^0.0.1"
   }
 }

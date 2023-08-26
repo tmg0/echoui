@@ -14,10 +14,5 @@
   "dependencies": {
     "@echo-ui/system": "workspace:^0.0.1",
     "@echo-ui/theme": "workspace:^0.0.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.28",
-    "tailwind": "^4.0.0"
   }
 }

@@ -4,7 +4,6 @@
  */
 
 import Color from 'color'
-import plugin from 'tailwindcss/plugin'
 import get from 'lodash.get'
 import omit from 'lodash.omit'
 import forEach from 'lodash.foreach'
@@ -171,8 +170,8 @@ const corePlugin = (
     'unit-24': `var(--${prefix}-spacing-unit-24)`
   }
 
-  return plugin(
-    ({ addBase, addUtilities, addVariant }) => {
+  return [
+    ({ addBase, addUtilities, addVariant }: any) => {
       // add base classNames
       addBase({
         ':root, [data-theme]': {
@@ -258,10 +257,10 @@ const corePlugin = (
         }
       }
     }
-  )
+  ]
 }
 
-export const echoui = (config: EchoUIPluginConfig = {}): ReturnType<typeof plugin> => {
+export const echoui = (config: EchoUIPluginConfig = {}): ReturnType<any> => {
   const {
     themes: themeObject = {},
     defaultTheme = 'light',
