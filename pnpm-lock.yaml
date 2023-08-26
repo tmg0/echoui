@@ -57,7 +57,11 @@ importers:
 
   packages/components/avatar: {}
 
-  packages/components/button: {}
+  packages/components/button:
+    dependencies:
+      '@echo-ui/system':
+        specifier: workspace:^0.0.1
+        version: link:../../core/system
 
   packages/core/system: {}
 

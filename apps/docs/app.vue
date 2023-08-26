@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import { Button } from '@echo-ui/vue'
+</script>
+
 <template>
   <div>
-    <NuxtWelcome />
+    <Button>
+      btn
+    </Button>
   </div>
 </template>
