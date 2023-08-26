@@ -1,5 +1,5 @@
 import { type HTMLEchoUIProps } from '@echo-ui/system'
-import { button } from '@echo-ui/theme'
+import { button } from '@nextui-org/theme'
 import { computed, useAttrs } from 'vue'
 import { useButtonGroupContext } from './use-button-group-context'
 

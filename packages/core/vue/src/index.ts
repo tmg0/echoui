@@ -1,2 +1,2 @@
 export * from '@echo-ui/button'
-export * from '@echo-ui/theme'
+export * from '@nextui-org/theme'

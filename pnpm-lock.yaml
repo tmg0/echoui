@@ -44,12 +44,12 @@ importers:
 
   apps/docs:
     dependencies:
-      '@echo-ui/theme':
-        specifier: workspace:^0.0.1
-        version: link:../../packages/core/theme
       '@echo-ui/vue':
         specifier: workspace:^0.0.1
         version: link:../../packages/core/vue
+      '@nextui-org/theme':
+        specifier: ^2.1.2
+        version: 2.1.2(tailwindcss@3.3.3)
     devDependencies:
       '@nuxt/devtools':
         specifier: latest
@@ -68,77 +68,20 @@ importers:
       '@echo-ui/system':
         specifier: workspace:^0.0.1
         version: link:../../core/system
-      '@echo-ui/theme':
-        specifier: workspace:^0.0.1
-        version: link:../../core/theme
+      '@nextui-org/theme':
+        specifier: ^2.1.2
+        version: 2.1.2(tailwindcss@3.3.3)
 
   packages/core/system: {}
-
-  packages/core/theme:
-    dependencies:
-      '@types/color':
-        specifier: ^3.0.3
-        version: 3.0.3
-      '@types/flat':
-        specifier: ^5.0.2
-        version: 5.0.2
-      '@types/lodash.foreach':
-        specifier: ^4.5.7
-        version: 4.5.7
-      '@types/lodash.get':
-        specifier: ^4.4.7
-        version: 4.4.7
-      '@types/lodash.kebabcase':
-        specifier: ^4.1.7
-        version: 4.1.7
-      '@types/lodash.mapkeys':
-        specifier: ^4.6.7
-        version: 4.6.7
-      '@types/lodash.omit':
-        specifier: ^4.5.7
-        version: 4.5.7
-      color:
-        specifier: ^4.2.3
-        version: 4.2.3
-      color2k:
-        specifier: ^2.0.2
-        version: 2.0.2
-      deepmerge:
-        specifier: 4.3.1
-        version: 4.3.1
-      flat:
-        specifier: ^5.0.2
-        version: 5.0.2
-      lodash.foreach:
-        specifier: ^4.5.0
-        version: 4.5.0
-      lodash.get:
-        specifier: ^4.4.2
-        version: 4.4.2
-      lodash.kebabcase:
-        specifier: ^4.1.1
-        version: 4.1.1
-      lodash.mapkeys:
-        specifier: ^4.6.0
-        version: 4.6.0
-      lodash.omit:
-        specifier: ^4.5.0
-        version: 4.5.0
-      tailwind-variants:
-        specifier: ^0.1.13
-        version: 0.1.13(tailwindcss@3.3.3)
-      tailwindcss:
-        specifier: ^3.2.7
-        version: 3.3.3
 
   packages/core/vue:
     dependencies:
       '@echo-ui/button':
         specifier: workspace:^0.0.1
         version: link:../../components/button
-      '@echo-ui/theme':
-        specifier: workspace:^0.0.1
-        version: link:../theme
+      '@nextui-org/theme':
+        specifier: ^2.1.2
+        version: 2.1.2(tailwindcss@3.3.3)
 
 packages:
 
@@ -1292,6 +1235,31 @@ packages:
       '@netlify/node-cookies': 0.1.0
       urlpattern-polyfill: 8.0.2
     dev: true
+
+  /@nextui-org/theme@2.1.2(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-r71nB3kP5Y8aGQ2dke4Das8Fyq+B1IlvazL2xYPQBq1HwMOWL9eRsUjnIR8o2o+HqUYchLncuWzWDiKYeTy8YQ==}
+    peerDependencies:
+      tailwindcss: '*'
+    dependencies:
+      '@types/color': 3.0.3
+      '@types/flat': 5.0.2
+      '@types/lodash.foreach': 4.5.7
+      '@types/lodash.get': 4.4.7
+      '@types/lodash.kebabcase': 4.1.7
+      '@types/lodash.mapkeys': 4.6.7
+      '@types/lodash.omit': 4.5.7
+      color: 4.2.3
+      color2k: 2.0.2
+      deepmerge: 4.3.1
+      flat: 5.0.2
+      lodash.foreach: 4.5.0
+      lodash.get: 4.4.2
+      lodash.kebabcase: 4.1.1
+      lodash.mapkeys: 4.6.0
+      lodash.omit: 4.5.0
+      tailwind-variants: 0.1.13(tailwindcss@3.3.3)
+      tailwindcss: 3.3.3
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
