@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm dev:docs",
-    "build": "turbo run build --filter !echo-ui/docs",
+    "build": "turbo build --filter !@echo-ui/docs",
     "dev:docs": "turbo dev --filter @echo-ui/docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""

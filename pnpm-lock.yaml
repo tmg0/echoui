@@ -62,6 +62,9 @@ importers:
       '@echo-ui/system':
         specifier: workspace:^0.0.1
         version: link:../../core/system
+      '@echo-ui/theme':
+        specifier: workspace:^0.0.1
+        version: link:../../core/theme
 
   packages/core/system: {}
 

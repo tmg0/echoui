@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@echo-ui/system": "workspace:^0.0.1"
+    "@echo-ui/system": "workspace:^0.0.1",
+    "@echo-ui/theme": "workspace:^0.0.1"
   }
 }
