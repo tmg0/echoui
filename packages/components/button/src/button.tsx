@@ -6,10 +6,10 @@ export interface ButtonProps extends UseButtonProps {}
 const Button = defineComponent({
   setup (props: ButtonProps) {
     const slots = useSlots()
-    const { Component } = useButton(props)
+    const { Component, styles } = useButton(props)
 
     return () => (
-      <Component>
+      <Component class={styles.value}>
         {slots.default?.()}
       </Component>
     )
