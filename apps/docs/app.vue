@@ -4,7 +4,7 @@ import { Button } from '@echo-ui/vue'
 
 <template>
   <div>
-    <Button>
+    <Button color="primary">
       btn
     </Button>
   </div>
