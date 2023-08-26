@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "pnpm dev:docs",
+    "build": "turbo run build --filter !echo-ui/docs",
+    "dev:docs": "turbo dev --filter @echo-ui/docs",
     "lint": "turbo run lint",
-    "clean": "turbo daemon clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -21,5 +21,8 @@
     "vue": "^3.3.4"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "echo-ui"
+  "name": "echo-ui",
+  "volta": {
+    "node": "19.9.0"
+  }
 }
