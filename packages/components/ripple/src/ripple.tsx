@@ -58,8 +58,8 @@ const Ripple = defineComponent({
                 transformOrigin: 'center',
                 pointerEvents: 'none',
                 zIndex: 10,
-                top: ripple.y,
-                left: ripple.x,
+                top: `${ripple.y}px`,
+                left: `${ripple.x}px`,
                 width: `${ripple.size}px`,
                 height: `${ripple.size}px`
               }}
