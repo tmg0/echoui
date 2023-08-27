@@ -1,6 +1,7 @@
 import { type HTMLEchoUIProps } from '@echo-ui/system'
 import { button } from '@nextui-org/theme'
 import { computed, useAttrs } from 'vue'
+import { useRipple } from '@echo-ui/ripple'
 import { useButtonGroupContext } from './use-button-group-context'
 
 interface Props extends HTMLEchoUIProps {
@@ -39,7 +40,13 @@ export const useButton = (props: UseButtonProps) => {
     className: className as any
   }))
 
+  const { onClick: onRippleClickHandler, ripples } = useRipple()
+
   const Component = as || 'button'
 
-  return { Component, styles }
+  const onClick = (e: any) => {
+    onRippleClickHandler(e)
+  }
+
+  return { Component, styles, ripples, onClick }
 }

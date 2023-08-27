@@ -1,4 +1,5 @@
 import { defineComponent, useSlots, type PropType } from 'vue'
+import { Ripple } from '@echo-ui/ripple'
 import { useButton, type UseButtonProps } from './use-button'
 
 export interface ButtonProps extends UseButtonProps { }
@@ -22,11 +23,12 @@ const Button = defineComponent({
 
   setup (props: ButtonProps) {
     const slots = useSlots()
-    const { Component, styles } = useButton(props)
+    const { Component, styles, ripples, onClick } = useButton(props)
 
     return () => (
-      <Component class={styles.value}>
+      <Component class={styles.value} onClick={onClick}>
         {slots.default?.()}
+        {!props.disableRipple && <Ripple ripples={ripples.value} />}
       </Component>
     )
   }

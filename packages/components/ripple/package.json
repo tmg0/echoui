@@ -1,5 +1,5 @@
 {
-  "name": "@echo-ui/button",
+  "name": "@echo-ui/ripple",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.ts",
@@ -11,9 +11,14 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "peerDependencies": {
+    "@vueuse/motion": ">=2.0.0"
+  },
   "dependencies": {
-    "@echo-ui/ripple": "workspace:^0.0.1",
     "@echo-ui/system": "workspace:^0.0.1",
     "@nextui-org/theme": "^2.1.2"
+  },
+  "devDependencies": {
+    "@vueuse/motion": "^2.0.0"
   }
 }
