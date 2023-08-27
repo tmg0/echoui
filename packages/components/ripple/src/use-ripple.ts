@@ -35,8 +35,8 @@ export function useRipple (props: UseRippleProps = {}) {
     timeoutIds.forEach(id => clearTimeout(id))
   })
 
-  const onClick = (event: any) => {
-    const trigger = event.currentTarget
+  const onClick = (event: MouseEvent) => {
+    const trigger = event.currentTarget as HTMLElement
 
     const size = Math.max(trigger.clientWidth, trigger.clientHeight)
     const rect = trigger.getBoundingClientRect()

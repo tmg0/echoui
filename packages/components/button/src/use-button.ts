@@ -16,6 +16,7 @@ interface Props extends HTMLEchoUIProps {
   disableRipple?: boolean
   isIconOnly?: boolean
   fullWidth?: boolean
+  onClick?: () => void
 }
 
 export type UseButtonProps = Props
@@ -44,9 +45,12 @@ export const useButton = (props: UseButtonProps) => {
 
   const Component = as || 'button'
 
-  const onClick = (e: any) => {
+  const onClick = (e: MouseEvent) => {
+    props.onClick?.()
     onRippleClickHandler(e)
   }
 
-  return { Component, styles, ripples, onClick }
+  const getButtonProps = { onClick }
+
+  return { Component, styles, ripples, getButtonProps }
 }

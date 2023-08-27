@@ -15,7 +15,8 @@ const props = {
   disableAnimation: Boolean as PropType<ButtonProps['disableAnimation']>,
   disableRipple: Boolean as PropType<ButtonProps['disableRipple']>,
   isIconOnly: Boolean as PropType<ButtonProps['isIconOnly']>,
-  fullWidth: Boolean as PropType<ButtonProps['fullWidth']>
+  fullWidth: Boolean as PropType<ButtonProps['fullWidth']>,
+  onClick: Function as PropType<ButtonProps['onClick']>
 }
 
 const Button = defineComponent({
@@ -23,10 +24,10 @@ const Button = defineComponent({
 
   setup (props: ButtonProps) {
     const slots = useSlots()
-    const { Component, styles, ripples, onClick } = useButton(props)
+    const { Component, styles, ripples, getButtonProps } = useButton(props)
 
     return () => (
-      <Component class={styles.value} onClick={onClick}>
+      <Component class={styles.value} {...getButtonProps}>
         {slots.default?.()}
         {!props.disableRipple && <Ripple ripples={ripples.value} />}
       </Component>

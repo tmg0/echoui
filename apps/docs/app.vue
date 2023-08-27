@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { Button } from '@echo-ui/vue'
+
+const onClick = () => {
+  console.log('on click')
+}
 </script>
 
 <template>
   <div>
     <div class="flex gap-2 p-2">
-      <Button>
+      <Button :on-click="onClick">
         Default
       </Button>
       <Button color="primary">
