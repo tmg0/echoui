@@ -27,7 +27,17 @@ export const useButton = (props: UseButtonProps) => {
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext
 
-  const { as, size, color, variant, radius, fullWidth, isDisabled, disableAnimation, isIconOnly } = props
+  const {
+    as,
+    size,
+    color,
+    variant,
+    radius,
+    fullWidth = groupContext?.value.fullWidth ?? false,
+    isDisabled = groupContext?.value.isDisabled ?? false,
+    disableAnimation,
+    isIconOnly
+  } = props
 
   const styles = computed(() => button({
     size,

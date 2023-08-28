@@ -12,7 +12,7 @@ const props = {
   spinnerPlacement: String as PropType<ButtonProps['spinnerPlacement']>,
   radius: String as PropType<ButtonProps['radius']>,
   isLoading: Boolean as PropType<ButtonProps['isLoading']>,
-  isDisabled: Boolean as PropType<ButtonProps['isDisabled']>,
+  isDisabled: { type: Boolean as PropType<ButtonProps['isDisabled']>, default: undefined },
   disableAnimation: Boolean as PropType<ButtonProps['disableAnimation']>,
   disableRipple: Boolean as PropType<ButtonProps['disableRipple']>,
   isIconOnly: Boolean as PropType<ButtonProps['isIconOnly']>,

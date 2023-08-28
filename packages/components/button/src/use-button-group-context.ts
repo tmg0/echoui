@@ -1,13 +1,6 @@
-import { defineComponent, inject, provide } from 'vue'
-
-const ButtonGroupProvider = defineComponent({
-  setup () {
-    provide('isInGroup', true)
-  }
-})
+import { inject, type ComputedRef } from 'vue'
+import type { ContextType } from './use-button-group'
 
 export const useButtonGroupContext = () => {
-  return inject('isInGroup', false)
+  return inject<undefined | ComputedRef<ContextType>>('context', undefined)
 }
-
-export default ButtonGroupProvider

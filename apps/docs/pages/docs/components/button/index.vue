@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@echo-ui/vue'
+import { Button, ButtonGroup } from '@echo-ui/vue'
 </script>
 
 <template>
@@ -95,6 +95,22 @@ import { Button } from '@echo-ui/vue'
       <Button color="primary" is-disabled is-loading>
         Loading
       </Button>
+    </div>
+
+    <div class="flex gap-2 p-2">
+      <ButtonGroup>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
+    </div>
+
+    <div class="flex gap-2 p-2">
+      <ButtonGroup is-disabled>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
     </div>
   </div>
 </template>
