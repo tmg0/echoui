@@ -12,6 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@nextui-org/theme": "^2.1.2"
+    "@echoui/shared-utils": "workspace:^0.0.1",
+    "@echoui/system": "workspace:^0.0.1",
+    "@nextui-org/theme": "^2.1.3"
   }
 }
