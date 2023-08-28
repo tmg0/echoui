@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, type PropType, ref } from 'vue'
+import { defineComponent, type PropType, ref } from 'vue'
 import { Spinner } from '@echoui/spinner'
 import { Ripple } from '@echoui/ripple'
 import { useButton, type UseButtonProps } from './use-button'
@@ -23,9 +23,8 @@ const props = {
 const Button = defineComponent({
   props,
 
-  setup (props: ButtonProps) {
+  setup (props: ButtonProps, { slots }) {
     const target = ref()
-    const slots = useSlots()
     const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, ref: target })
 
     return () => (

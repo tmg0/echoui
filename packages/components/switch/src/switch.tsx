@@ -1,10 +1,13 @@
-import { defineComponent, useSlots, type PropType, ref } from 'vue'
+import { defineComponent, type PropType, ref, computed } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useSwitch, type UseSwitchProps } from './use-switch'
 
 export interface SwitchProps extends Omit<UseSwitchProps, 'ref'> { }
 
 const props = {
+  color: String as PropType<SwitchProps['color']>,
+  size: String as PropType<SwitchProps['size']>,
+  defaultSelected: Boolean,
   isSelected: Boolean,
   isDisabled: Boolean as PropType<SwitchProps['isDisabled']>
 }
@@ -12,18 +15,21 @@ const props = {
 const Switch = defineComponent({
   props,
 
-  setup (props, { emit }) {
+  setup (props, { emit, slots }) {
     const target = ref()
-    const slots = useSlots()
-    const thumbIcon = slots.thumbIcon?.()
+    const label = computed(() => slots.default?.())
+
     const isSelected = useVModel(props, 'isSelected', emit)
-    const { Component, getBaseProps, getWrapperProps, getThumbProps } = useSwitch({ ...props, isSelected, ref: target })
+    const { Component, getBaseProps, getWrapperProps, getThumbProps, getStartContentProps, getEndContentProps } = useSwitch({ ...props, isSelected, ref: target })
 
     return () => (
       <Component {...getBaseProps.value}>
         <span ref={target} {...getWrapperProps.value}>
-          <span {...getThumbProps.value}>{thumbIcon}</span>
+          <span {...getStartContentProps.value}>{slots.startContent?.()}</span>
+          <span {...getThumbProps.value}>{slots.thumbIcon?.()}</span>
+          <span {...getEndContentProps.value}>{slots.endContent?.()}</span>
         </span>
+        {label.value && <span>{label.value}</span>}
       </Component>
     )
   }

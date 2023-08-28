@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, type PropType, provide } from 'vue'
+import { defineComponent, type PropType, provide } from 'vue'
 import { useButtonGroup, type UseButtonGroupProps } from './use-button-group'
 
 export interface ButtonGroupProps extends UseButtonGroupProps { }
@@ -15,8 +15,7 @@ const props = {
 const ButtonGroup = defineComponent({
   props,
 
-  setup (props) {
-    const slots = useSlots()
+  setup (props, { slots }) {
     const { styles, context, Component } = useButtonGroup(props)
 
     provide('context', context)
