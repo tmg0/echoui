@@ -11,7 +11,9 @@
     "clean:node-modules": "rimraf ./packages/**/**/node_modules && rimraf ./node_modules",
     "clean:lock": "rimraf ./pnpm-lock.yaml",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "version:dev": "changeset version --snapshot dev-v2",
+    "release:dev": "changeset publish --snapshot --no-git-tag --tag dev-v2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",

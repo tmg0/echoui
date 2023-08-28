@@ -1,12 +1,20 @@
 {
-  "name": "avatar",
-  "version": "1.0.0",
+  "name": "@echo-ui/avatar",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsup src --watch",
+    "build": "tsup src --dts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "@echo-ui/ripple": "workspace:^0.0.1",
+    "@echo-ui/spinner": "workspace:^0.0.1",
+    "@echo-ui/system": "workspace:^0.0.1",
+    "@nextui-org/theme": "^2.1.2"
+  }
 }
