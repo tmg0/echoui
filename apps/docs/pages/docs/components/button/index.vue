@@ -98,6 +98,12 @@ import { Button, ButtonGroup } from '@echo-ui/vue'
     </div>
 
     <div class="flex gap-2 p-2">
+      <Button radius="full" class="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
+        Button
+      </Button>
+    </div>
+
+    <div class="flex gap-2 p-2">
       <ButtonGroup>
         <Button>One</Button>
         <Button>Two</Button>
