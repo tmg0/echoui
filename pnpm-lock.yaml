@@ -80,8 +80,12 @@ importers:
   packages/core/vue:
     specifiers:
       '@echo-ui/button': workspace:^0.0.1
+      '@echo-ui/ripple': workspace:^0.0.1
+      '@echo-ui/spinner': workspace:^0.0.1
     dependencies:
       '@echo-ui/button': link:../../components/button
+      '@echo-ui/ripple': link:../../components/ripple
+      '@echo-ui/spinner': link:../../components/spinner
 
 packages:
 
