@@ -1,4 +1,4 @@
-import type { HTMLEchoUIProps } from '@echo-ui/system'
+import type { HTMLEchoUIProps } from '@echoui/system'
 import { computed } from 'vue'
 import { buttonGroup } from '@nextui-org/theme'
 import { type ButtonProps } from './button'

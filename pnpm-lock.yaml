@@ -34,7 +34,7 @@ importers:
 
   apps/docs:
     specifiers:
-      '@echo-ui/vue': workspace:^0.0.1
+      '@echoui/vue': workspace:^0.0.1
       '@nextui-org/theme': ^2.1.2
       '@nuxt/devtools': latest
       '@nuxtjs/tailwindcss': ^6.8.0
@@ -42,7 +42,7 @@ importers:
       '@vueuse/motion': ^2.0.0
       nuxt: ^3.7.0
     dependencies:
-      '@echo-ui/vue': link:../../packages/core/vue
+      '@echoui/vue': link:../../packages/core/vue
       '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
       '@vueuse/core': 10.4.1_vue@3.3.4
       '@vueuse/motion': 2.0.0_vue@3.3.4
@@ -53,32 +53,29 @@ importers:
 
   packages/components/avatar:
     specifiers:
-      '@echo-ui/ripple': workspace:^0.0.1
-      '@echo-ui/spinner': workspace:^0.0.1
-      '@echo-ui/system': workspace:^0.0.1
+      '@echoui/ripple': workspace:^0.0.1
+      '@echoui/spinner': workspace:^0.0.1
+      '@echoui/system': workspace:^0.0.1
       '@nextui-org/theme': ^2.1.2
     dependencies:
-      '@echo-ui/ripple': link:../ripple
-      '@echo-ui/spinner': link:../spinner
-      '@echo-ui/system': link:../../core/system
+      '@echoui/ripple': link:../ripple
+      '@echoui/spinner': link:../spinner
+      '@echoui/system': link:../../core/system
       '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
 
   packages/components/button:
     specifiers:
-      '@echo-ui/ripple': workspace:^0.0.1
-      '@echo-ui/shared-utils': workspace:^0.0.1
-      '@echo-ui/spinner': workspace:^0.0.1
-      '@echo-ui/system': workspace:^0.0.1
+      '@echoui/ripple': workspace:^0.0.1
+      '@echoui/shared-utils': workspace:^0.0.1
+      '@echoui/spinner': workspace:^0.0.1
+      '@echoui/system': workspace:^0.0.1
       '@nextui-org/theme': ^2.1.2
-      '@vueuse/motion': ^2.0.0
     dependencies:
-      '@echo-ui/ripple': link:../ripple
-      '@echo-ui/shared-utils': link:../../utilities/shared-utils
-      '@echo-ui/spinner': link:../spinner
-      '@echo-ui/system': link:../../core/system
+      '@echoui/ripple': link:../ripple
+      '@echoui/shared-utils': link:../../utilities/shared-utils
+      '@echoui/spinner': link:../spinner
+      '@echoui/system': link:../../core/system
       '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
-    devDependencies:
-      '@vueuse/motion': 2.0.0_vue@3.3.4
 
   packages/components/ripple:
     specifiers:
@@ -103,13 +100,16 @@ importers:
 
   packages/core/vue:
     specifiers:
-      '@echo-ui/button': workspace:^0.0.1
-      '@echo-ui/ripple': workspace:^0.0.1
-      '@echo-ui/spinner': workspace:^0.0.1
+      '@echoui/button': workspace:^0.0.1
+      '@echoui/ripple': workspace:^0.0.1
+      '@echoui/spinner': workspace:^0.0.1
     dependencies:
-      '@echo-ui/button': link:../../components/button
-      '@echo-ui/ripple': link:../../components/ripple
-      '@echo-ui/spinner': link:../../components/spinner
+      '@echoui/button': link:../../components/button
+      '@echoui/ripple': link:../../components/ripple
+      '@echoui/spinner': link:../../components/spinner
+
+  packages/utilities/shared-utils:
+    specifiers: {}
 
 packages:
 

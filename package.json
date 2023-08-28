@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "pnpm dev:docs",
-    "build": "turbo build --filter !@echo-ui/docs",
-    "dev:docs": "turbo dev --filter @echo-ui/docs",
+    "build": "turbo build --filter !@echoui/docs",
+    "dev:docs": "turbo dev --filter @echoui/docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "turbo:clean": "turbo daemon clean && rimraf ./node_modules/.cache/turbo",
@@ -31,7 +31,7 @@
     "vue": "^3.3.4"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "echo-ui",
+  "name": "echoui",
   "volta": {
     "node": "19.9.0"
   }

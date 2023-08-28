@@ -1,6 +1,6 @@
 import { defineComponent, useSlots, type PropType, ref } from 'vue'
-import { Spinner } from '@echo-ui/spinner'
-import { Ripple } from '@echo-ui/ripple'
+import { Spinner } from '@echoui/spinner'
+import { Ripple } from '@echoui/ripple'
 import { useButton, type UseButtonProps } from './use-button'
 
 export interface ButtonProps extends UseButtonProps { }

@@ -1,5 +1,5 @@
 {
-  "name": "@echo-ui/avatar",
+  "name": "@echoui/avatar",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.ts",
@@ -12,9 +12,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@echo-ui/ripple": "workspace:^0.0.1",
-    "@echo-ui/spinner": "workspace:^0.0.1",
-    "@echo-ui/system": "workspace:^0.0.1",
+    "@echoui/ripple": "workspace:^0.0.1",
+    "@echoui/spinner": "workspace:^0.0.1",
+    "@echoui/system": "workspace:^0.0.1",
     "@nextui-org/theme": "^2.1.2"
   }
 }

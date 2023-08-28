@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, ButtonGroup } from '@echo-ui/vue'
+import { Button, ButtonGroup } from '@echoui/vue'
 </script>
 
 <template>

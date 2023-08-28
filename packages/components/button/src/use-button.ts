@@ -1,9 +1,9 @@
-import { type HTMLEchoUIProps } from '@echo-ui/system'
+import { type HTMLEchoUIProps } from '@echoui/system'
 import { button } from '@nextui-org/theme'
 import { computed, ref, useAttrs } from 'vue'
-import { dataAttr } from '@echo-ui/shared-utils'
-import { useRipple } from '@echo-ui/ripple'
-import type { SpinnerProps } from '@echo-ui/spinner'
+import { dataAttr } from '@echoui/shared-utils'
+import { useRipple } from '@echoui/ripple'
+import type { SpinnerProps } from '@echoui/spinner'
 import { useButtonGroupContext } from './use-button-group-context'
 
 interface Props extends HTMLEchoUIProps {

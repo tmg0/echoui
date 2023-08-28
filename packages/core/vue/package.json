@@ -1,5 +1,5 @@
 {
-  "name": "@echo-ui/vue",
+  "name": "@echoui/vue",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.ts",
@@ -12,8 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@echo-ui/button": "workspace:^0.0.1",
-    "@echo-ui/ripple": "workspace:^0.0.1",
-    "@echo-ui/spinner": "workspace:^0.0.1"
+    "@echoui/button": "workspace:^0.0.1",
+    "@echoui/ripple": "workspace:^0.0.1",
+    "@echoui/spinner": "workspace:^0.0.1"
   }
 }
