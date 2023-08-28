@@ -11,13 +11,13 @@ export interface UseRippleProps {
   /**
   /**
    * The time to remove the ripples in ms.
-   * @default 1000
+   * @default 500
    */
   removeAfter?: number
 }
 
 export function useRipple (props: UseRippleProps = {}) {
-  const { removeAfter = 1000, ...otherProps } = props
+  const { removeAfter = 500, ...otherProps } = props
 
   const timeoutIds: number[] = []
   const ripples = ref<RippleType[]>([])
