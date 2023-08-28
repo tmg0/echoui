@@ -6,7 +6,7 @@ import { Button } from '@echo-ui/vue'
   <div>
     <div class="flex gap-2 p-2">
       <Button color="primary">
-        Disabled
+        Button
       </Button>
     </div>
 
@@ -16,7 +16,7 @@ import { Button } from '@echo-ui/vue'
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-2 p-2 items-center">
       <Button size="sm">
         Small
       </Button>
