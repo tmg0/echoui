@@ -1,4 +1,4 @@
-import { defineComponent, ref, type PropType, onMounted } from 'vue'
+import { defineComponent, ref, type PropType } from 'vue'
 import { useMotion } from '@vueuse/motion'
 import type { RippleType, UseRippleProps } from './use-ripple'
 
@@ -32,12 +32,10 @@ const RippleItem = defineComponent({
 
     const duration = clamp(0.01 * props.size, 0.2, props.size > 100 ? 0.75 : 0.5) * 1000
 
-    onMounted(() => {
-      useMotion(target, {
-        initial: { transform: 'scale(0)', opacity: 0.35 },
-        enter: { transform: 'scale(2)', opacity: 0, transition: { duration } },
-        leave: { opacity: 0 }
-      })
+    useMotion(target, {
+      initial: { transform: 'scale(0)', opacity: 0.35 },
+      enter: { transform: 'scale(2)', opacity: 0, transition: { duration } },
+      leave: { opacity: 0 }
     })
 
     return () => (

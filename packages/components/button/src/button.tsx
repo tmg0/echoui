@@ -1,4 +1,4 @@
-import { defineComponent, useSlots, type PropType } from 'vue'
+import { defineComponent, useSlots, type PropType, ref } from 'vue'
 import { Spinner } from '@echo-ui/spinner'
 import { Ripple } from '@echo-ui/ripple'
 import { useButton, type UseButtonProps } from './use-button'
@@ -24,11 +24,12 @@ const Button = defineComponent({
   props,
 
   setup (props: ButtonProps) {
+    const target = ref()
     const slots = useSlots()
     const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton(props)
 
     return () => (
-      <Component class={styles.value} {...getButtonProps}>
+      <Component ref={target} class={styles.value} {...getButtonProps.value}>
         {props.isLoading && <Spinner color="current" size={spinnerSize.value} />}
         {slots.default?.()}
         {!props.disableRipple && <Ripple ripples={ripples.value} />}

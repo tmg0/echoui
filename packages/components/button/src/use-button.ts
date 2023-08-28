@@ -1,6 +1,7 @@
 import { type HTMLEchoUIProps } from '@echo-ui/system'
 import { button } from '@nextui-org/theme'
-import { computed, useAttrs } from 'vue'
+import { computed, ref, useAttrs } from 'vue'
+import { dataAttr } from '@echo-ui/shared-utils'
 import { useRipple } from '@echo-ui/ripple'
 import type { SpinnerProps } from '@echo-ui/spinner'
 import { useButtonGroupContext } from './use-button-group-context'
@@ -24,6 +25,7 @@ export type UseButtonProps = Props
 
 export const useButton = (props: UseButtonProps) => {
   const { className } = useAttrs()
+  const isPressed = ref(false)
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext
 
@@ -61,7 +63,16 @@ export const useButton = (props: UseButtonProps) => {
     onRippleClickHandler(e)
   }
 
-  const getButtonProps = { onClick }
+  const onMousedown = () => { isPressed.value = true }
+  const onMouseup = () => { isPressed.value = false }
+
+  const getButtonProps = computed(() => ({
+    'data-disabled': dataAttr(isDisabled),
+    'data-pressed': dataAttr(isPressed.value),
+    onClick,
+    onMousedown,
+    onMouseup
+  }))
 
   const spinnerSize = computed(() => {
     const size = props.size ?? 'md'

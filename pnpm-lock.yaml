@@ -52,9 +52,6 @@ importers:
       nuxt: 3.7.0
 
   packages/components/avatar:
-    specifiers: {}
-
-  packages/components/button:
     specifiers:
       '@echo-ui/ripple': workspace:^0.0.1
       '@echo-ui/spinner': workspace:^0.0.1
@@ -65,6 +62,23 @@ importers:
       '@echo-ui/spinner': link:../spinner
       '@echo-ui/system': link:../../core/system
       '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
+
+  packages/components/button:
+    specifiers:
+      '@echo-ui/ripple': workspace:^0.0.1
+      '@echo-ui/shared-utils': workspace:^0.0.1
+      '@echo-ui/spinner': workspace:^0.0.1
+      '@echo-ui/system': workspace:^0.0.1
+      '@nextui-org/theme': ^2.1.2
+      '@vueuse/motion': ^2.0.0
+    dependencies:
+      '@echo-ui/ripple': link:../ripple
+      '@echo-ui/shared-utils': link:../../utilities/shared-utils
+      '@echo-ui/spinner': link:../spinner
+      '@echo-ui/system': link:../../core/system
+      '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
+    devDependencies:
+      '@vueuse/motion': 2.0.0_vue@3.3.4
 
   packages/components/ripple:
     specifiers:
@@ -1630,6 +1644,7 @@ packages:
   /@nuxt/kit/3.7.0:
     resolution: {integrity: sha512-bsPRb2NTLHRacjyybhhA3pZFIqo2pxB6bcP4FQDuzlGzVTI5PtJzbfNpkmQC7q+LZt8K0pNlxKVGisDvZctk6w==}
     engines: {node: ^14.18.0 || >=16.10.0}
+    requiresBuild: true
     dependencies:
       '@nuxt/schema': 3.7.0
       c12: 1.4.2
