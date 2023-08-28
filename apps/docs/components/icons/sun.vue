@@ -1,7 +1,7 @@
 <script setup lang="ts">
 type Props = {
   size?: number
-  width?: nnumber
+  width?: number
   height?: number
 }
 

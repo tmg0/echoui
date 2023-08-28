@@ -98,6 +98,12 @@ import { Button, ButtonGroup } from '@echoui/vue'
     </div>
 
     <div class="flex gap-2 p-2">
+      <Button is-icon-only color="danger" aria-label="Like">
+        <IconsHeart />
+      </Button>
+    </div>
+
+    <div class="flex gap-2 p-2">
       <Button radius="full" class="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
         Button
       </Button>
