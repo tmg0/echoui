@@ -5,17 +5,19 @@ export interface SpinnerProps extends UseSpinnerProps { }
 
 const props = {
   color: String as PropType<SpinnerProps['color']>,
-  size: String as PropType<SpinnerProps['size']>
+  size: String as PropType<SpinnerProps['size']>,
+  label: String as PropType<SpinnerProps['label']>,
+  labelColor: String as PropType<SpinnerProps['labelColor']>
 }
 
 const Spinner = defineComponent({
   props,
 
   setup (props) {
-    const { slots, label } = useSpinner({ ...props })
+    const { slots, label, getSpinnerProps } = useSpinner({ ...props })
 
     return () => (
-      <div>
+      <div class={slots.value.base()} {...getSpinnerProps}>
         <div class={slots.value.wrapper()}>
           <i class={slots.value.circle1()} />
           <i class={slots.value.circle2()} />

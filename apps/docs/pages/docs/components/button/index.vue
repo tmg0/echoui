@@ -3,20 +3,20 @@ import { Button, ButtonGroup } from '@echoui/vue'
 </script>
 
 <template>
-  <div>
-    <div class="flex gap-2 p-2">
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4 ">
       <Button color="primary">
         Button
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button color="primary" is-disabled>
         Disabled
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2 items-center">
+    <div class="flex gap-4  items-center">
       <Button size="sm">
         Small
       </Button>
@@ -28,7 +28,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button radius="full">
         Full
       </Button>
@@ -46,7 +46,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button>
         Default
       </Button>
@@ -67,7 +67,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button color="primary" variant="solid">
         Solid
       </Button>
@@ -91,25 +91,25 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button color="primary" is-disabled is-loading>
         Loading
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button is-icon-only color="danger" aria-label="Like">
         <IconsHeart />
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <Button radius="full" class="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
         Button
       </Button>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <ButtonGroup>
         <Button>One</Button>
         <Button>Two</Button>
@@ -117,7 +117,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </ButtonGroup>
     </div>
 
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-4 ">
       <ButtonGroup is-disabled>
         <Button>One</Button>
         <Button>Two</Button>
