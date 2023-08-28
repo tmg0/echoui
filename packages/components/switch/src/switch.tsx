@@ -20,7 +20,7 @@ const Switch = defineComponent({
     const label = computed(() => slots.default?.())
 
     const isSelected = useVModel(props, 'isSelected', emit)
-    const { Component, getBaseProps, getWrapperProps, getThumbProps, getStartContentProps, getEndContentProps } = useSwitch({ ...props, isSelected, ref: target })
+    const { Component, getBaseProps, getWrapperProps, getLabelProps, getThumbProps, getStartContentProps, getEndContentProps } = useSwitch({ ...props, isSelected, ref: target })
 
     return () => (
       <Component {...getBaseProps.value}>
@@ -29,7 +29,7 @@ const Switch = defineComponent({
           <span {...getThumbProps.value}>{slots.thumbIcon?.()}</span>
           <span {...getEndContentProps.value}>{slots.endContent?.()}</span>
         </span>
-        {label.value && <span>{label.value}</span>}
+        {label.value && <span {...getLabelProps.value}>{label.value}</span>}
       </Component>
     )
   }

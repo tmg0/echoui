@@ -38,6 +38,10 @@ export const useSwitch = (props: UseSwitchProps) => {
     onClick
   }))
 
+  const getLabelProps = computed(() => ({
+    class: slots.value.label()
+  }))
+
   const getThumbProps = computed(() => ({
     class: slots.value.thumb()
   }))
@@ -59,6 +63,7 @@ export const useSwitch = (props: UseSwitchProps) => {
     isSelected,
     getBaseProps,
     getWrapperProps,
+    getLabelProps,
     getThumbProps,
     getStartContentProps,
     getEndContentProps
