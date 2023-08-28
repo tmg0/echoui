@@ -58,5 +58,11 @@ const onClick = () => {
         Disabled
       </Button>
     </div>
+
+    <div class="flex gap-2 p-2">
+      <Button color="primary" is-loading>
+        Loading
+      </Button>
+    </div>
   </div>
 </template>

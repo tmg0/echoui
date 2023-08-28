@@ -2,6 +2,7 @@ import { type HTMLEchoUIProps } from '@echo-ui/system'
 import { button } from '@nextui-org/theme'
 import { computed, useAttrs } from 'vue'
 import { useRipple } from '@echo-ui/ripple'
+import type { SpinnerProps } from '@echo-ui/spinner'
 import { useButtonGroupContext } from './use-button-group-context'
 
 interface Props extends HTMLEchoUIProps {
@@ -52,5 +53,16 @@ export const useButton = (props: UseButtonProps) => {
 
   const getButtonProps = { onClick }
 
-  return { Component, styles, ripples, getButtonProps }
+  const spinnerSize = computed(() => {
+    const size = props.size ?? 'md'
+    const buttonSpinnerSizeMap: Record<string, SpinnerProps['size']> = {
+      sm: 'sm',
+      md: 'sm',
+      lg: 'md'
+    }
+
+    return buttonSpinnerSizeMap[size]
+  })
+
+  return { Component, styles, ripples, spinnerSize, getButtonProps }
 }

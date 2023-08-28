@@ -67,6 +67,9 @@ importers:
       '@echo-ui/ripple':
         specifier: workspace:^0.0.1
         version: link:../ripple
+      '@echo-ui/spinner':
+        specifier: workspace:^0.0.1
+        version: link:../spinner
       '@echo-ui/system':
         specifier: workspace:^0.0.1
         version: link:../../core/system

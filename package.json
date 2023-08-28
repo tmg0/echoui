@@ -5,6 +5,7 @@
     "build": "turbo build --filter !@echo-ui/docs",
     "dev:docs": "turbo dev --filter @echo-ui/docs",
     "lint": "turbo run lint",
+    "clean": "turbo daemon clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
