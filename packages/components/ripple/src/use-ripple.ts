@@ -19,7 +19,7 @@ export interface UseRippleProps {
 export function useRipple (props: UseRippleProps = {}) {
   const { removeAfter = 500, ...otherProps } = props
 
-  const timeoutIds: number[] = []
+  const timeoutIds: NodeJS.Timeout[] = []
   const ripples = ref<RippleType[]>([])
 
   watchEffect(() => {
