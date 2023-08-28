@@ -74,6 +74,12 @@ importers:
     dependencies:
       '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
 
+  packages/components/switch:
+    specifiers:
+      '@nextui-org/theme': ^2.1.2
+    dependencies:
+      '@nextui-org/theme': 2.1.3_tailwindcss@3.3.3
+
   packages/core/system:
     specifiers: {}
 
