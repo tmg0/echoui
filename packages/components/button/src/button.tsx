@@ -8,7 +8,7 @@ export interface ButtonProps extends UseButtonProps { }
 const props = {
   variant: String as PropType<ButtonProps['variant']>,
   color: String as PropType<ButtonProps['color']>,
-  size: String as PropType<ButtonProps['size']>,
+  size: { type: String as PropType<ButtonProps['size']>, default: undefined },
   spinnerPlacement: String as PropType<ButtonProps['spinnerPlacement']>,
   radius: String as PropType<ButtonProps['radius']>,
   isLoading: Boolean as PropType<ButtonProps['isLoading']>,

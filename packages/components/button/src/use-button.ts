@@ -31,8 +31,8 @@ export const useButton = (props: UseButtonProps) => {
 
   const {
     as,
-    size,
-    color,
+    size = groupContext?.value.size,
+    color = groupContext?.value.color,
     variant,
     radius,
     fullWidth = groupContext?.value.fullWidth ?? false,

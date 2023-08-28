@@ -118,7 +118,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
     </div>
 
     <div class="flex gap-2 p-2">
-      <ButtonGroup is-disabled>
+      <ButtonGroup is-disabled size="sm">
         <Button>One</Button>
         <Button>Two</Button>
         <Button>Three</Button>
