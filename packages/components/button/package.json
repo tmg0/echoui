@@ -11,11 +11,17 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "peerDependencies": {
+    "@vueuse/core": ">=10.0.0"
+  },
   "dependencies": {
     "@echoui/ripple": "workspace:^0.0.1",
     "@echoui/shared-utils": "workspace:^0.0.1",
     "@echoui/spinner": "workspace:^0.0.1",
     "@echoui/system": "workspace:^0.0.1",
     "@nextui-org/theme": "^2.1.2"
+  },
+  "devDependencies": {
+    "@vueuse/core": "^10.4.1"
   }
 }

@@ -1,6 +1,7 @@
 import { type HTMLEchoUIProps } from '@echoui/system'
 import { button } from '@nextui-org/theme'
-import { computed, ref, useAttrs } from 'vue'
+import { computed, useAttrs, type Ref } from 'vue'
+import { useMousePressed } from '@vueuse/core'
 import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
 import type { SpinnerProps } from '@echoui/spinner'
@@ -21,15 +22,15 @@ interface Props extends HTMLEchoUIProps {
   onClick?: () => void
 }
 
-export type UseButtonProps = Props
+export type UseButtonProps = Props & { ref: Ref }
 
 export const useButton = (props: UseButtonProps) => {
   const { className } = useAttrs()
-  const isPressed = ref(false)
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext
 
   const {
+    ref: domRef,
     as,
     size = groupContext?.value.size,
     color = groupContext?.value.color,
@@ -40,6 +41,8 @@ export const useButton = (props: UseButtonProps) => {
     disableAnimation,
     isIconOnly
   } = props
+
+  const { pressed: isPressed } = useMousePressed({ target: domRef })
 
   const styles = computed(() => button({
     size,
@@ -63,15 +66,10 @@ export const useButton = (props: UseButtonProps) => {
     onRippleClickHandler(e)
   }
 
-  const onMousedown = () => { isPressed.value = true }
-  const onMouseup = () => { isPressed.value = false }
-
   const getButtonProps = computed(() => ({
     'data-disabled': dataAttr(isDisabled),
     'data-pressed': dataAttr(isPressed.value),
-    onClick,
-    onMousedown,
-    onMouseup
+    onClick
   }))
 
   const spinnerSize = computed(() => {

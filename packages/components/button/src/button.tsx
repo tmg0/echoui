@@ -3,7 +3,7 @@ import { Spinner } from '@echoui/spinner'
 import { Ripple } from '@echoui/ripple'
 import { useButton, type UseButtonProps } from './use-button'
 
-export interface ButtonProps extends UseButtonProps { }
+export interface ButtonProps extends Omit<UseButtonProps, 'ref'> { }
 
 const props = {
   variant: String as PropType<ButtonProps['variant']>,
@@ -26,7 +26,7 @@ const Button = defineComponent({
   setup (props: ButtonProps) {
     const target = ref()
     const slots = useSlots()
-    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton(props)
+    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, ref: target })
 
     return () => (
       <Component ref={target} class={styles.value} {...getButtonProps.value}>
