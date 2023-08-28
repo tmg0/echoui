@@ -1,29 +1,38 @@
-import { computed } from 'vue'
+import { computed, type Ref, type WritableComputedRef } from 'vue'
+import { useMousePressed } from '@vueuse/core'
 import { toggle } from '@nextui-org/theme'
 import { dataAttr } from '@echoui/shared-utils'
 import type { HTMLEchoUIProps } from '@echoui/system'
 
 interface Props extends HTMLEchoUIProps {
   isDisabled?: boolean;
-  isSelected?: boolean
+  isSelected: WritableComputedRef<boolean | undefined>
 }
 
-export type UseSwitchProps = Props
+export type UseSwitchProps = Props & { ref: Ref }
 
 export const useSwitch = (props: UseSwitchProps) => {
-  const { as, isDisabled } = props
+  const { ref: domRef, as, isSelected, isDisabled } = props
+  const { pressed } = useMousePressed({ target: domRef })
   const Component = as || 'label'
 
   const slots = computed(() => toggle(props))
 
+  const onClick = () => {
+    isSelected.value = !isSelected.value
+  }
+
   const getBaseProps = computed(() => ({
     class: slots.value.base(),
-    'data-disabled': dataAttr(isDisabled)
+    'data-disabled': dataAttr(isDisabled),
+    'data-selected': dataAttr(isSelected.value),
+    'data-pressed': dataAttr(pressed.value)
   }))
 
   const getWrapperProps = computed(() => ({
     'aria-hidden': true,
-    class: slots.value.wrapper()
+    class: slots.value.wrapper(),
+    onClick
   }))
 
   const getThumbProps = computed(() => ({
@@ -42,5 +51,13 @@ export const useSwitch = (props: UseSwitchProps) => {
     class: slots.value.endContent()
   }))
 
-  return { Component, getBaseProps, getWrapperProps, getThumbProps, getStartContentProps, getEndContentProps }
+  return {
+    Component,
+    isSelected,
+    getBaseProps,
+    getWrapperProps,
+    getThumbProps,
+    getStartContentProps,
+    getEndContentProps
+  }
 }
