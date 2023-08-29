@@ -5,7 +5,7 @@ import { useMousePressed } from '@vueuse/core'
 import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
 import type { SpinnerProps } from '@echoui/spinner'
-import { useButtonGroupContext } from './use-button-group-context'
+import { useButtonGroupContext } from './button-group-context'
 
 interface Props extends HTMLEchoUIProps {
   variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'

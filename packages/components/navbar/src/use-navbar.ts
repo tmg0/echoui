@@ -17,7 +17,7 @@ export const useNavbar = (props: UseNavbarProps) => {
 
   const Component = as || 'nav'
 
-  const slots = computed(() => navbar(props))
+  const slots = computed<Record<string, any>>(() => navbar(props))
 
   const getBaseProps = computed(() => ({
     'data-hidden': dataAttr(isHidden.value),
@@ -33,5 +33,5 @@ export const useNavbar = (props: UseNavbarProps) => {
     class: slots.value.wrapper()
   }))
 
-  return { Component, getBaseProps, getWrapperProps }
+  return { Component, slots, getBaseProps, getWrapperProps }
 }

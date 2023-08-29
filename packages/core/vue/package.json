@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@echoui/button": "workspace:^0.0.1",
+    "@echoui/navbar": "workspace:^0.0.1",
     "@echoui/ripple": "workspace:^0.0.1",
     "@echoui/spinner": "workspace:^0.0.1",
     "@echoui/switch": "workspace:^0.0.1"

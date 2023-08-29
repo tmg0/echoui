@@ -1,6 +1,8 @@
 import { defineComponent, provide, ref } from 'vue'
 import { useVModel } from '@vueuse/core'
+import { pickChildren } from '@echoui/vue-utils'
 import { useNavbar, type UseNavbarProps } from './use-navbar'
+import { NavbarMenu } from './navbar-menu'
 
 export interface NavbarProps extends Omit<UseNavbarProps, 'isMenuOpen'> {
   isMenuDefaultOpen?: boolean
@@ -23,10 +25,12 @@ const Navbar = defineComponent({
 
     provide('context', context)
 
+    const [childrenWithoutMenu, menu] = pickChildren(slots.default?.(), NavbarMenu)
+
     const content = (
       <>
-        <header {...context.getWrapperProps.value}>{slots.default?.()}</header>
-        {slots.navbarMenu?.()}
+        <header {...context.getWrapperProps.value}>{childrenWithoutMenu}</header>
+        {menu}
       </>
     )
 
