@@ -32,12 +32,12 @@ export const useButton = (props: UseButtonProps) => {
   const {
     ref: domRef,
     as,
-    size = groupContext?.value.size,
-    color = groupContext?.value.color,
+    size = groupContext?.value?.size,
+    color = groupContext?.value?.color,
     variant,
     radius,
-    fullWidth = groupContext?.value.fullWidth ?? false,
-    isDisabled = groupContext?.value.isDisabled ?? false,
+    fullWidth = groupContext?.value?.fullWidth ?? false,
+    isDisabled = groupContext?.value?.isDisabled ?? false,
     disableAnimation,
     isIconOnly
   } = props
