@@ -121,8 +121,10 @@ importers:
 
   packages/components/ripple:
     specifiers:
+      '@vueuse/core': ^10.4.1
       '@vueuse/motion': ^2.0.0
     devDependencies:
+      '@vueuse/core': 10.4.1_vue@3.3.4
       '@vueuse/motion': 2.0.0_vue@3.3.4
 
   packages/components/spinner:

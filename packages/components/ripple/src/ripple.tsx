@@ -10,7 +10,7 @@ export interface RippleProps extends UseRippleProps {
 const props = {
   removeAfter: {
     type: Number as PropType<RippleProps['removeAfter']>,
-    default: 500
+    default: 1000
   },
   ripples: {
     type: Array as PropType<RippleProps['ripples']>,

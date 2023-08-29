@@ -31,7 +31,7 @@ const Button = defineComponent({
       <button ref={target} class={styles.value} {...getButtonProps.value}>
         {props.isLoading && <Spinner color="current" size={spinnerSize.value} />}
         {slots.default?.()}
-        {!props.disableRipple && <Ripple ripples={ripples.value} />}
+        {!props.disableRipple && <Ripple ripples={ripples.value} removeAfter={750} />}
       </button>
     )
   }
