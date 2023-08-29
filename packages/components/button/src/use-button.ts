@@ -25,19 +25,19 @@ interface Props extends HTMLEchoUIProps {
 export type UseButtonProps = Props & { ref: Ref }
 
 export const useButton = (props: UseButtonProps) => {
-  const { className } = useAttrs()
+  const { class: className } = useAttrs()
   const groupContext = useButtonGroupContext()
-  const isInGroup = !!groupContext
+  const isInGroup = !!groupContext?.isInGroup
 
   const {
     ref: domRef,
     as,
-    size = groupContext?.value?.size,
-    color = groupContext?.value?.color,
+    size = groupContext?.size,
+    color = groupContext?.color,
     variant,
     radius,
-    fullWidth = groupContext?.value?.fullWidth ?? false,
-    isDisabled = groupContext?.value?.isDisabled ?? false,
+    fullWidth = groupContext?.fullWidth ?? false,
+    isDisabled = groupContext?.isDisabled ?? false,
     disableAnimation,
     isIconOnly
   } = props

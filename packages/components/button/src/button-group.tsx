@@ -16,14 +16,14 @@ const ButtonGroup = defineComponent({
   props,
 
   setup (props, { slots }) {
-    const { styles, context, Component } = useButtonGroup(props)
+    const { styles, context } = useButtonGroup(props)
 
-    provide('context', context)
+    provide('context', { ...context.value, isInGroup: true })
 
     return () => (
-      <Component class={styles.value}>
+      <div class={styles.value}>
         {slots.default?.()}
-      </Component>
+      </div>
     )
   }
 })
