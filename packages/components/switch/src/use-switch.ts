@@ -1,4 +1,4 @@
-import { computed, type Ref, type WritableComputedRef } from 'vue'
+import { computed, type Ref } from 'vue'
 import { useMousePressed } from '@vueuse/core'
 import { toggle } from '@nextui-org/theme'
 import { dataAttr } from '@echoui/shared-utils'
@@ -9,7 +9,8 @@ interface Props extends HTMLEchoUIProps {
   size?: 'sm' | 'md' | 'lg'
   defaultSelected?: boolean
   isDisabled?: boolean;
-  isSelected: WritableComputedRef<boolean | undefined>
+  isSelected: Ref<boolean | undefined>
+  onValueChange?: (isSelected: boolean) => void
 }
 
 export type UseSwitchProps = Props & { ref: Ref }
@@ -23,6 +24,7 @@ export const useSwitch = (props: UseSwitchProps) => {
 
   const onClick = () => {
     isSelected.value = !isSelected.value
+    props.onValueChange?.(isSelected.value)
   }
 
   const getBaseProps = computed(() => ({
@@ -46,6 +48,13 @@ export const useSwitch = (props: UseSwitchProps) => {
     class: slots.value.thumb()
   }))
 
+  const getThumbIconProps = computed(() => ({
+    width: '1em',
+    height: '1em',
+    className: slots.value.thumbIcon(),
+    isSelected: isSelected.value
+  }))
+
   const getStartContentProps = computed(() => ({
     width: '1em',
     height: '1em',
@@ -65,6 +74,7 @@ export const useSwitch = (props: UseSwitchProps) => {
     getWrapperProps,
     getLabelProps,
     getThumbProps,
+    getThumbIconProps,
     getStartContentProps,
     getEndContentProps
   }

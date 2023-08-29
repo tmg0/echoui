@@ -7,10 +7,13 @@ export interface SwitchProps extends Omit<UseSwitchProps, 'ref'> { }
 const props = {
   color: String as PropType<SwitchProps['color']>,
   size: String as PropType<SwitchProps['size']>,
-  defaultSelected: Boolean,
-  isSelected: Boolean,
-  isDisabled: Boolean as PropType<SwitchProps['isDisabled']>
+  defaultSelected: { type: Boolean, default: undefined },
+  isSelected: { type: Boolean, default: undefined },
+  isDisabled: Boolean as PropType<SwitchProps['isDisabled']>,
+  onValueChange: Function as PropType<SwitchProps['onValueChange']>
 }
+
+const isUndefined = (value: any): value is undefined => typeof value === 'undefined'
 
 const Switch = defineComponent({
   props,
@@ -19,14 +22,23 @@ const Switch = defineComponent({
     const target = ref()
     const label = computed(() => slots.default?.())
 
-    const isSelected = useVModel(props, 'isSelected', emit)
-    const { Component, getBaseProps, getWrapperProps, getLabelProps, getThumbProps, getStartContentProps, getEndContentProps } = useSwitch({ ...props, isSelected, ref: target })
+    const isSelected = isUndefined(props.isSelected) ? ref(props.defaultSelected ?? false) : useVModel(props, 'isSelected', emit)
+    const {
+      Component,
+      getBaseProps,
+      getWrapperProps,
+      getLabelProps,
+      getThumbProps,
+      getThumbIconProps,
+      getStartContentProps,
+      getEndContentProps
+    } = useSwitch({ ...props, isSelected, ref: target })
 
     return () => (
       <Component {...getBaseProps.value}>
         <span ref={target} {...getWrapperProps.value}>
           <span {...getStartContentProps.value}>{slots.startContent?.()}</span>
-          <span {...getThumbProps.value}>{slots.thumbIcon?.()}</span>
+          <span {...getThumbProps.value}>{slots.thumbIcon?.(getThumbIconProps.value)}</span>
           <span {...getEndContentProps.value}>{slots.endContent?.()}</span>
         </span>
         {label.value && <span {...getLabelProps.value}>{label.value}</span>}

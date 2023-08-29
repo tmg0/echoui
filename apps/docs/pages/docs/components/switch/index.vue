@@ -3,64 +3,64 @@ import { Switch } from '@echoui/vue'
 import MoonFilledIcon from '~/components/icons/moon.vue'
 import SunFilledIcon from '~/components/icons/sun.vue'
 
-const isSelected = ref(false)
+const isSelected = ref(true)
 </script>
 
 <template>
   <div class="flex flex-col gap-4">
     <div>
-      <Switch v-model:is-selected="isSelected" />
+      <Switch default-selected />
     </div>
 
     <div>
-      <Switch v-model:is-selected="isSelected">
+      <Switch default-selected>
         Automatic updates
       </Switch>
     </div>
 
     <div>
-      <Switch v-model:is-selected="isSelected" is-disabled>
+      <Switch default-selected is-disabled>
         Automatic updates
       </Switch>
     </div>
 
     <div class="flex gap-4">
-      <Switch v-model:is-selected="isSelected" size="sm">
+      <Switch default-selected size="sm">
         Small
       </Switch>
-      <Switch v-model:is-selected="isSelected" size="md">
+      <Switch default-selected size="md">
         Medium
       </Switch>
-      <Switch v-model:is-selected="isSelected" size="lg">
+      <Switch default-selected size="lg">
         Large
       </Switch>
     </div>
 
     <div class="flex gap-4">
-      <Switch v-model:is-selected="isSelected" color="default">
+      <Switch default-selected color="default">
         Default
       </Switch>
-      <Switch v-model:is-selected="isSelected" color="primary">
+      <Switch default-selected color="primary">
         Primary
       </Switch>
-      <Switch v-model:is-selected="isSelected" color="secondary">
+      <Switch default-selected color="secondary">
         Secondary
       </Switch>
-      <Switch v-model:is-selected="isSelected" color="success">
+      <Switch default-selected color="success">
         Success
       </Switch>
-      <Switch v-model:is-selected="isSelected" color="warning">
+      <Switch default-selected color="warning">
         Warning
       </Switch>
-      <Switch v-model:is-selected="isSelected" color="danger">
+      <Switch default-selected color="danger">
         Danger
       </Switch>
     </div>
 
     <div>
-      <Switch v-model:is-selected="isSelected" size="lg">
-        <template #thumbIcon>
-          <Component :is="isSelected ? SunFilledIcon : MoonFilledIcon" :size="16" fill="#000" />
+      <Switch default-selected size="lg">
+        <template #thumbIcon="{ isSelected: checked, className }">
+          <Component :is="checked ? SunFilledIcon : MoonFilledIcon" :class="className" :size="16" />
         </template>
 
         Dark mode
@@ -68,7 +68,7 @@ const isSelected = ref(false)
     </div>
 
     <div>
-      <Switch v-model:is-selected="isSelected" color="success" size="lg">
+      <Switch default-selected color="success" size="lg">
         <template #startContent>
           <SunFilledIcon :size="16" fill="#000" />
         </template>
@@ -79,6 +79,16 @@ const isSelected = ref(false)
 
         Dark mode
       </Switch>
+    </div>
+
+    <div>
+      <Switch v-model:is-selected="isSelected">
+        Airplane mode
+      </Switch>
+
+      <div class="text-sm text-default-500">
+        Selected: {{ isSelected }}
+      </div>
     </div>
   </div>
 </template>
