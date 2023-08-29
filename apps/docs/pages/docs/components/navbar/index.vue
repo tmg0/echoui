@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@echoui/vue'
+import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@echoui/vue'
 </script>
 
 <template>
@@ -14,18 +14,26 @@ import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@echoui/
         </NavbarBrand>
         <NavbarContent class="hidden sm:flex gap-4" justify="center">
           <NavbarItem>
-            Features
+            <Link color="foreground" href="#">
+              Features
+            </Link>
           </NavbarItem>
           <NavbarItem is-active>
-            Customers
+            <Link href="#" aria-current="page">
+              Customers
+            </Link>
           </NavbarItem>
           <NavbarItem>
-            Integrations
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem class="hidden lg:flex">
-            Login
+            <Link href="#">
+              Login
+            </Link>
           </NavbarItem>
           <NavbarItem>
             <Button color="primary" variant="flat">

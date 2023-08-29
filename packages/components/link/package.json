@@ -1,0 +1,20 @@
+{
+  "name": "@echoui/link",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsup src --watch",
+    "build": "tsup src --dts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@echoui/shared-icons": "workspace:^0.0.1",
+    "@echoui/shared-utils": "workspace:^0.0.1",
+    "@echoui/system": "workspace:^0.0.1",
+    "@nextui-org/theme": "^2.1.3"
+  }
+}
