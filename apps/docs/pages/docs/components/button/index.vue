@@ -3,7 +3,24 @@ import { Button, ButtonGroup } from '@echoui/vue'
 </script>
 
 <template>
-  <NuxtLayout name="docs">
+  <div>
+    <h1 class="text-4xl font-bold mb-8">
+      Button
+    </h1>
+
+    <p class="my-4">
+      Buttons allow users to perform actions and choose with a single tap.
+    </p>
+
+    <div class="flex gap-2 mt-6">
+      <Button size="sm">
+        <IconsSocialGithub />
+        Source
+      </Button>
+    </div>
+
+    <hr class="my-8 border-default-200">
+
     <div class="flex flex-col gap-4">
       <div class="flex gap-4 ">
         <Button color="primary">
@@ -126,5 +143,5 @@ import { Button, ButtonGroup } from '@echoui/vue'
         </ButtonGroup>
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>

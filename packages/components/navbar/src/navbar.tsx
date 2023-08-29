@@ -1,4 +1,4 @@
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent, provide, ref, type PropType } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { pickChildren } from '@echoui/vue-utils'
 import { useNavbar, type UseNavbarProps } from './use-navbar'
@@ -10,6 +10,7 @@ export interface NavbarProps extends Omit<UseNavbarProps, 'isMenuOpen'> {
 
 const props = {
   height: Number,
+  maxWidth: { type: String as PropType<NavbarProps['maxWidth']>, default: undefined },
   isMenuOpen: { type: Boolean, default: undefined },
   isMenuDefaultOpen: { type: Boolean, default: false }
 }

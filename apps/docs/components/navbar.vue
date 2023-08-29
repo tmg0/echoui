@@ -3,7 +3,7 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
 </script>
 
 <template>
-  <EchoUINavbar>
+  <EchoUINavbar max-width="xl">
     <NavbarContent class="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
         <NavbarBrand>
