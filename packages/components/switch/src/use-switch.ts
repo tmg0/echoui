@@ -7,7 +7,6 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 interface Props extends HTMLEchoUIProps {
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   size?: 'sm' | 'md' | 'lg'
-  defaultSelected?: boolean
   isDisabled?: boolean;
   isSelected: Ref<boolean | undefined>
   onValueChange?: (isSelected: boolean) => void
