@@ -14,20 +14,21 @@ const props = {
   href: String,
   color: String as PropType<LinkProps['color']>,
   size: String as PropType<LinkProps['size']>,
-  underline: String as PropType<LinkProps['underline']>
+  underline: String as PropType<LinkProps['underline']>,
+  onClick: Function as PropType<() => void>
 }
 
 const Link = defineComponent({
   props,
   setup (props, { slots }) {
     const anchorIcon = slots.anchorIcon ? slots.anchorIcon?.() : <LinkIcon class={linkAnchorClasses} />
-    const { Component, getLinkProps } = useLink(props)
+    const { getLinkProps } = useLink(props)
 
     return () => (
-      <Component {...getLinkProps.value}>
+      <a {...getLinkProps.value}>
         {slots.default?.()}
         {props.showAnchorIcon && anchorIcon}
-      </Component>
+      </a>
     )
   }
 })

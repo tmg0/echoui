@@ -5,6 +5,7 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 import { dataAttr } from '@echoui/shared-utils'
 
 interface Props extends HTMLEchoUIProps, LinkVariantProps {
+  href?: string
   isExternal?: boolean
   showAnchorIcon?: boolean
   isFocused?: boolean
@@ -23,6 +24,7 @@ export const useLink = (props: UseLinkProps) => {
 
   const getLinkProps = computed(() => ({
     class: styles.value,
+    href: props.href,
     'data-focus': dataAttr(props.isFocused),
     'data-disabled': dataAttr(props.isDisabled),
     'data-focus-visible': dataAttr(props.isFocusVisible)
