@@ -3,7 +3,7 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 import { chip } from '@nextui-org/theme'
 import { computed } from 'vue'
 
-export interface UseChipProps extends HTMLEchoUIProps, ChipVariantProps { }
+export interface UseChipProps extends HTMLEchoUIProps<'div'>, ChipVariantProps { }
 
 export const useChip = (props: UseChipProps) => {
   const slots = computed<Record<string, any>>(() => chip(props))

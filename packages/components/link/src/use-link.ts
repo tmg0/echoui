@@ -4,7 +4,7 @@ import { link } from '@nextui-org/theme'
 import type { HTMLEchoUIProps } from '@echoui/system'
 import { dataAttr } from '@echoui/shared-utils'
 
-interface Props extends HTMLEchoUIProps, LinkVariantProps {
+interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
   href?: string
   isExternal?: boolean
   showAnchorIcon?: boolean

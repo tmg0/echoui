@@ -4,7 +4,7 @@ import { toggle } from '@nextui-org/theme'
 import { dataAttr } from '@echoui/shared-utils'
 import type { HTMLEchoUIProps } from '@echoui/system'
 
-interface Props extends HTMLEchoUIProps {
+interface Props extends HTMLEchoUIProps<'label'> {
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   size?: 'sm' | 'md' | 'lg'
   isDisabled?: boolean;

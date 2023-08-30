@@ -3,7 +3,7 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 import { dataAttr } from '@echoui/shared-utils'
 import { useNavbarContext } from './navbar-context'
 
-export interface NavbarItemProps extends HTMLEchoUIProps {
+export interface NavbarItemProps extends HTMLEchoUIProps<'li'> {
   isActive?: boolean
 }
 

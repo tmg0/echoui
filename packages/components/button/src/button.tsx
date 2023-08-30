@@ -25,14 +25,14 @@ const Button = defineComponent({
 
   setup (props: ButtonProps, { slots }) {
     const target = ref()
-    const { styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, ref: target })
+    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, ref: target })
 
     return () => (
-      <button ref={target} class={styles.value} {...getButtonProps.value}>
+      <Component ref={target} class={styles.value} {...getButtonProps.value}>
         {props.isLoading && <Spinner color="current" size={spinnerSize.value} />}
         {slots.default?.()}
         {!props.disableRipple && <Ripple ripples={ripples.value} removeAfter={750} />}
-      </button>
+      </Component>
     )
   }
 })

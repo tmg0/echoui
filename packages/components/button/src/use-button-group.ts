@@ -15,7 +15,7 @@ export type ContextType = {
   fullWidth?: boolean
 }
 
-interface Props extends HTMLEchoUIProps {
+interface Props extends HTMLEchoUIProps<'div'> {
   variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   size?: 'sm' | 'md' | 'lg'

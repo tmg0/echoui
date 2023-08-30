@@ -1,5 +1,5 @@
-export type As = 'div' | 'span' | 'button'
+export type As = 'div' | 'span' | 'button' | 'a' | 'li' | 'nav' | 'label'
 
-export type HTMLEchoUIProps = {
-  as?: string
+export type HTMLEchoUIProps<T extends As> = {
+  as?: T
 }

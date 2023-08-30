@@ -4,7 +4,7 @@ import { computed, ref, type Ref } from 'vue'
 import { navbar } from '@nextui-org/theme'
 import { dataAttr } from '@echoui/shared-utils'
 
-interface Props extends HTMLEchoUIProps {
+interface Props extends HTMLEchoUIProps<'nav'> {
   height?: number | string
   isMenuOpen: Ref<boolean | undefined>
 }

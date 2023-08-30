@@ -7,7 +7,7 @@ import { useRipple } from '@echoui/ripple'
 import type { SpinnerProps } from '@echoui/spinner'
 import { useButtonGroupContext } from './button-group-context'
 
-interface Props extends HTMLEchoUIProps {
+interface Props extends HTMLEchoUIProps<'button'> {
   variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   size?: 'sm' | 'md' | 'lg'
