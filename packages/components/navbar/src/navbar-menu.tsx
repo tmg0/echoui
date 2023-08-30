@@ -3,14 +3,15 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 import { dataAttr } from '@echoui/shared-utils'
 import { useNavbarContext } from './navbar-context'
 
-export interface NavbarMenuProps extends HTMLEchoUIProps<'ul'> {}
+export interface NavbarMenuProps extends HTMLEchoUIProps<'ul'> { }
 
 const NavbarMenu = defineComponent({
   name: 'EchoNavbarMenu',
+
   setup (_, { slots }) {
     const ctx = useNavbarContext()
 
-    return () => (
+    return () => ctx?.isMenuOpen.value && (
       <ul
         class={ctx?.slots.value.menu()}
         data-open={dataAttr(ctx?.isMenuOpen.value)}

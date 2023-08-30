@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem } from '@echoui/vue'
+import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@echoui/vue'
+
+const menuItems = ['Docs', 'Components', 'Blog', 'Figma']
+
+const isMenuOpen = ref(false)
 </script>
 
 <template>
-  <EchoUINavbar max-width="xl">
+  <EchoUINavbar v-model:is-menu-open="isMenuOpen" max-width="xl">
     <NavbarContent class="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
         <NavbarBrand>
@@ -20,24 +24,9 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
         </Button>
       </NavbarItem>
 
-      <NavbarItem class="hidden lg:flex">
-        <Link color="foreground" href="#" class="font-normal">
-          Docs
-        </Link>
-      </NavbarItem>
-      <NavbarItem is-active class="hidden lg:flex">
-        <Link href="#" aria-current="page" class="font-normal">
-          Components
-        </Link>
-      </NavbarItem>
-      <NavbarItem class="hidden lg:flex">
-        <Link color="foreground" href="#" class="font-normal">
-          Blog
-        </Link>
-      </NavbarItem>
-      <NavbarItem class="hidden lg:flex">
-        <Link color="foreground" href="#" class="font-normal">
-          Figma
+      <NavbarItem v-for="(item, index) in menuItems" :key="item" :is-active="index === 1" class="hidden lg:flex">
+        <Link :color="index !== 1 ? 'foreground' : undefined" href="#" class="font-normal">
+          {{ item }}
         </Link>
       </NavbarItem>
     </NavbarContent>
@@ -60,6 +49,16 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
           <span class="text-default-500">Sponsor</span>
         </Button>
       </NavbarItem>
+
+      <NavbarMenuToggle class="ml-4" />
     </NavbarContent>
+
+    <NavbarMenu>
+      <NavbarMenuItem v-for="(item, index) in menuItems" :key="`${item}-${index}`">
+        <Link :color="index === 1 ? 'primary' : undefined" href="#" size="lg" class="w-full font-normal">
+          {{ item }}
+        </Link>
+      </NavbarMenuItem>
+    </NavbarMenu>
   </EchoUINavbar>
 </template>

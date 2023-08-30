@@ -24,6 +24,7 @@ const Navbar = defineComponent({
   setup (props, { emit, slots }) {
     const isMenuOpen = isUndefined(props.isMenuOpen) ? ref(props.isMenuDefaultOpen ?? false) : useVModel(props, 'isMenuOpen', emit)
     const context = useNavbar({ ...props, isMenuOpen })
+    const Component = context.Component
 
     provide('context', context)
 
@@ -36,7 +37,7 @@ const Navbar = defineComponent({
       </>
     )
 
-    return () => <nav {...context.getBaseProps.value}>{content}</nav>
+    return () => <Component {...context.getBaseProps.value}>{content}</Component>
   }
 })
 

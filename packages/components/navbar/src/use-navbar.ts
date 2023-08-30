@@ -6,18 +6,19 @@ import { dataAttr } from '@echoui/shared-utils'
 
 interface Props extends HTMLEchoUIProps<'nav'> {
   height?: number | string
+  shouldHideOnScroll?: boolean
   isMenuOpen: Ref<boolean | undefined>
 }
 
 export type UseNavbarProps = Props & NavbarVariantProps
 
 export const useNavbar = (props: UseNavbarProps) => {
-  const { as, height = '4rem', isMenuOpen } = props
+  const { as, height = '4rem', isMenuOpen, shouldHideOnScroll = false } = props
   const isHidden = ref(false)
 
   const Component = as || 'nav'
 
-  const slots = computed<Record<string, any>>(() => navbar(props))
+  const slots = computed<Record<string, any>>(() => navbar({ ...props, hideOnScroll: shouldHideOnScroll }))
 
   const getBaseProps = computed(() => ({
     'data-hidden': dataAttr(isHidden.value),
@@ -33,5 +34,5 @@ export const useNavbar = (props: UseNavbarProps) => {
     class: slots.value.wrapper()
   }))
 
-  return { Component, slots, isMenuOpen, getBaseProps, getWrapperProps }
+  return { Component, slots, isMenuOpen, shouldHideOnScroll, getBaseProps, getWrapperProps }
 }
