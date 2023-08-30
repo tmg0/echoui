@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, ButtonGroup } from '@echoui/vue'
+import { Button, ButtonGroup, Divider } from '@echoui/vue'
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import { Button, ButtonGroup } from '@echoui/vue'
       </Button>
     </div>
 
-    <hr class="my-8 border-default-200">
+    <Divider class="my-8" />
 
     <div class="flex flex-col gap-4">
       <div class="flex gap-4 ">
