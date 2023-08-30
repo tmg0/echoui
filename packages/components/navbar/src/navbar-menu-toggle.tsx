@@ -20,12 +20,12 @@ const NavbarMenuToggle = defineComponent({
   props,
 
   setup (props) {
-    const { class: className } = useAttrs()
+    const attrs = useAttrs()
     const { as, srOnlyText: srOnlyTextProp, onChange } = props
     const Component = as || 'button'
     const ctx = useNavbarContext()
 
-    const toggleStyles = clsx(className)
+    const toggleStyles = computed(() => clsx(attrs.class))
 
     const srOnlyText = computed(() => {
       if (srOnlyTextProp) {
@@ -43,7 +43,7 @@ const NavbarMenuToggle = defineComponent({
 
     return () => (
       <Component
-        class={ctx?.slots.value.toggle({ class: toggleStyles })}
+        class={ctx?.slots.value.toggle({ class: toggleStyles.value })}
         data-open={dataAttr(ctx?.isMenuOpen.value)}
         onClick={onClick}
       >

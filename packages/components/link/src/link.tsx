@@ -12,7 +12,7 @@ const props = {
   isDisabled: Boolean,
   isFocusVisible: Boolean,
   href: String,
-  color: String as PropType<LinkProps['color']>,
+  color: { type: String as PropType<LinkProps['color']>, default: undefined },
   size: String as PropType<LinkProps['size']>,
   underline: String as PropType<LinkProps['underline']>,
   onClick: Function as PropType<() => void>

@@ -17,12 +17,12 @@ interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
 export type UseLinkProps = Props
 
 export const useLink = (props: UseLinkProps) => {
-  const { class: className } = useAttrs()
+  const attrs = useAttrs()
   const { as } = props
 
   const Component = as || 'a'
 
-  const styles = computed(() => link({ ...props, className: className as string }))
+  const styles = computed(() => link({ ...props, className: attrs.class as string }))
 
   const getLinkProps = computed(() => ({
     class: styles.value,

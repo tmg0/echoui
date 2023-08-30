@@ -25,7 +25,7 @@ interface Props extends HTMLEchoUIProps<'button'> {
 export type UseButtonProps = Props & { ref: Ref }
 
 export const useButton = (props: UseButtonProps) => {
-  const { class: className } = useAttrs()
+  const attrs = useAttrs()
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext?.isInGroup
 
@@ -54,7 +54,7 @@ export const useButton = (props: UseButtonProps) => {
     isInGroup,
     disableAnimation,
     isIconOnly,
-    className: className as any
+    className: attrs.class as string
   }))
 
   const { onClick: onRippleClickHandler, ripples } = useRipple()

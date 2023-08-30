@@ -35,7 +35,7 @@ const onNav = (path: string) => {
         <div class="flex flex-col gap-3 items-start">
           <li v-for="child in section.children" :key="child.path" class="ml-4">
             <Link
-              :color="child.path === route.path ? 'foreground' : undefined"
+              color="foreground"
               :class="{ 'text-default-300': child.path !== route.path }"
               class="capitalize ml-4  before:content-[''] before:bg-default-300 before:mr-4 before:w-1 before:h-1 before:rounded-full cursor-pointer"
               :on-click="() => onNav(child.path)"

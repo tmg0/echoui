@@ -7,7 +7,7 @@ interface Props extends HTMLEchoUIProps<'div' | 'hr'> { }
 export type UseDividerProps = Props & DividerVariantProps
 
 export const useDivider = (props: UseDividerProps) => {
-  const { class: className } = useAttrs()
+  const attrs = useAttrs()
   const { as, orientation } = props
 
   let Component = as || 'div'
@@ -15,7 +15,7 @@ export const useDivider = (props: UseDividerProps) => {
     Component = 'div'
   }
 
-  const styles = computed(() => divider({ orientation, className: className as string }))
+  const styles = computed(() => divider({ orientation, className: attrs.class as string }))
 
   const getDividerProps = computed(() => ({
     class: styles.value,
