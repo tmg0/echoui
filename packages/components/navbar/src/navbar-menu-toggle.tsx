@@ -19,7 +19,7 @@ const props = {
 const NavbarMenuToggle = defineComponent({
   props,
 
-  setup (props, { slots }) {
+  setup (props) {
     const { class: className } = useAttrs()
     const { as, srOnlyText: srOnlyTextProp, onChange } = props
     const Component = as || 'button'
@@ -47,7 +47,7 @@ const NavbarMenuToggle = defineComponent({
         data-open={dataAttr(ctx?.isMenuOpen.value)}
         onClick={onClick}
       >
-        <span class={ctx?.slots.value.srOnly()}>{srOnlyText}</span>
+        <span class={ctx?.slots.value.srOnly()}>{srOnlyText.value}</span>
         <span class={ctx?.slots.value.toggleIcon()} />
       </Component>
     )
