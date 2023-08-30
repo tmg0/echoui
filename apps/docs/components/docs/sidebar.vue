@@ -8,7 +8,14 @@ const paths = [
   {
     path: '/docs/components',
     children: [
+      { path: '/docs/components/avatar' },
+      { path: '/docs/components/accordion' },
+      { path: '/docs/components/badge' },
       { path: '/docs/components/button' },
+      { path: '/docs/components/card' },
+      { path: '/docs/components/checkbox' },
+      { path: '/docs/components/checkbox group' },
+      { path: '/docs/components/chip' },
       { path: '/docs/components/navbar' },
       { path: '/docs/components/spinner' },
       { path: '/docs/components/switch' }
@@ -33,11 +40,11 @@ const onNav = (path: string) => {
         </div>
 
         <div class="flex flex-col gap-3 items-start">
-          <li v-for="child in section.children" :key="child.path" class="ml-4">
+          <li v-for="child in section.children" :key="child.path" class="ml-4 h-6 flex items-center">
             <Link
               color="foreground"
               :class="{ 'text-default-300': child.path !== route.path }"
-              class="capitalize ml-4  before:content-[''] before:bg-default-300 before:mr-4 before:w-1 before:h-1 before:rounded-full cursor-pointer"
+              class="capitalize ml-4 before:content-[''] before:bg-default-300 before:mr-4 before:w-1 before:h-1 before:rounded-full cursor-pointer"
               :on-click="() => onNav(child.path)"
             >
               {{ child.path.split('/').at(-1) }}

@@ -4,7 +4,7 @@ import { Button, Divider } from '@echoui/vue'
 
 <template>
   <div>
-    <h1 class="text-4xl font-bold mb-8">
+    <h1 class="text-4xl font-extrabold mb-8">
       <slot name="title" />
     </h1>
 
