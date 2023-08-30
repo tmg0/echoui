@@ -10,6 +10,8 @@ export interface NavbarProps extends Omit<UseNavbarProps, 'isMenuOpen'> {
 
 const props = {
   height: Number,
+  position: { type: String as PropType<NavbarProps['position']>, default: 'sticky' },
+  shouldHideOnScroll: Boolean,
   maxWidth: { type: String as PropType<NavbarProps['maxWidth']>, default: undefined },
   isMenuOpen: { type: Boolean, default: undefined },
   isMenuDefaultOpen: { type: Boolean, default: false }

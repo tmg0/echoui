@@ -20,32 +20,32 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
         </Button>
       </NavbarItem>
 
-      <NavbarItem>
+      <NavbarItem class="hidden lg:flex">
         <Link color="foreground" href="#" class="font-normal">
           Docs
         </Link>
       </NavbarItem>
-      <NavbarItem is-active>
+      <NavbarItem is-active class="hidden lg:flex">
         <Link href="#" aria-current="page" class="font-normal">
           Components
         </Link>
       </NavbarItem>
-      <NavbarItem>
+      <NavbarItem class="hidden lg:flex">
         <Link color="foreground" href="#" class="font-normal">
           Blog
         </Link>
       </NavbarItem>
-      <NavbarItem>
+      <NavbarItem class="hidden lg:flex">
         <Link color="foreground" href="#" class="font-normal">
           Figma
         </Link>
       </NavbarItem>
     </NavbarContent>
     <NavbarContent justify="end">
-      <NavbarItem class="hidden lg:flex">
+      <NavbarItem>
         <IconsSocialGithub />
       </NavbarItem>
-      <NavbarItem class="hidden lg:flex">
+      <NavbarItem>
         <ThemeSwitch />
       </NavbarItem>
       <NavbarItem class="hidden lg:flex">
@@ -54,7 +54,7 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
           <span class="text-default-500">Quick Search...</span>
         </Button>
       </NavbarItem>
-      <NavbarItem class="hidden lg:flex">
+      <NavbarItem>
         <Button variant="flat">
           <IconsHeart filled class="text-danger" />
           <span class="text-default-500">Sponsor</span>
