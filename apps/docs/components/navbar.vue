@@ -50,7 +50,7 @@ const isMenuOpen = ref(false)
         </Button>
       </NavbarItem>
 
-      <NavbarMenuToggle class="ml-4" />
+      <NavbarMenuToggle class="hidden sm:flex lg:hidden ml-4" />
     </NavbarContent>
 
     <NavbarMenu>

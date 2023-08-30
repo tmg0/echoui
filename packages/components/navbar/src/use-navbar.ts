@@ -34,5 +34,5 @@ export const useNavbar = (props: UseNavbarProps) => {
     class: slots.value.wrapper()
   }))
 
-  return { Component, slots, isMenuOpen, shouldHideOnScroll, getBaseProps, getWrapperProps }
+  return { Component, height, slots, isMenuOpen, shouldHideOnScroll, getBaseProps, getWrapperProps }
 }

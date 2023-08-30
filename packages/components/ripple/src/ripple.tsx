@@ -28,11 +28,11 @@ const RippleItem = defineComponent({
   props: ['color', 'y', 'x', 'size'],
 
   setup (props) {
-    const target = ref()
+    const domRef = ref()
 
     const duration = clamp(0.01 * props.size, 0.2, props.size > 100 ? 0.75 : 0.5) * 1000
 
-    useMotion(target, {
+    useMotion(domRef, {
       initial: { transform: 'scale(0)', opacity: 0.35 },
       enter: { transform: 'scale(2)', opacity: 0, transition: { duration } },
       leave: { opacity: 0 }
@@ -40,7 +40,7 @@ const RippleItem = defineComponent({
 
     return () => (
       <span
-        ref={target}
+        ref={domRef}
         style={{
           position: 'absolute',
           backgroundColor: props.color,
