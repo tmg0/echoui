@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@echoui/vue'
+import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle } from '@echoui/vue'
 
 const menuItems = ['Docs', 'Components', 'Blog', 'Figma']
 
@@ -54,11 +54,7 @@ const isMenuOpen = ref(false)
     </NavbarContent>
 
     <NavbarMenu>
-      <NavbarMenuItem v-for="(item, index) in menuItems" :key="`${item}-${index}`">
-        <Link :color="index === 1 ? 'primary' : undefined" href="#" size="lg" class="w-full font-normal">
-          {{ item }}
-        </Link>
-      </NavbarMenuItem>
+      <DocsSidebar />
     </NavbarMenu>
   </EchoUINavbar>
 </template>

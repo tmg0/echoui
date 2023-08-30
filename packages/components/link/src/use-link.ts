@@ -11,6 +11,7 @@ interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
   isFocused?: boolean
   isDisabled?: boolean
   isFocusVisible?: boolean
+  onClick?: () => void
 }
 
 export type UseLinkProps = Props
@@ -27,7 +28,8 @@ export const useLink = (props: UseLinkProps) => {
     href: props.href,
     'data-focus': dataAttr(props.isFocused),
     'data-disabled': dataAttr(props.isDisabled),
-    'data-focus-visible': dataAttr(props.isFocusVisible)
+    'data-focus-visible': dataAttr(props.isFocusVisible),
+    onClick: props.onClick
   }))
 
   return { Component, getLinkProps }
