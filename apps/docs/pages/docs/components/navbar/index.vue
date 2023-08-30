@@ -3,7 +3,15 @@ import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@e
 </script>
 
 <template>
-  <div>
+  <NuxtLayout name="mdx">
+    <template #title>
+      Navbar
+    </template>
+
+    <template #description>
+      A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse menu and more.
+    </template>
+
     <div>
       <Navbar>
         <NavbarBrand>
@@ -43,5 +51,5 @@ import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@e
         </NavbarContent>
       </Navbar>
     </div>
-  </div>
+  </NuxtLayout>
 </template>

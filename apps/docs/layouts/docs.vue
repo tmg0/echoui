@@ -8,6 +8,10 @@
       <div className="w-full prose prose-neutral">
         <slot />
       </div>
+
+      <footer>
+        <slot name="footer" />
+      </footer>
     </div>
 
     <div class="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-4">

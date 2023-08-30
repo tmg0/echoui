@@ -3,7 +3,12 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
 
 const menuItems = ['Docs', 'Components', 'Blog', 'Figma']
 
+const route = useRoute()
 const isMenuOpen = ref(false)
+
+watch(() => route.path, () => {
+  isMenuOpen.value = false
+})
 </script>
 
 <template>
