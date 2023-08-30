@@ -18,6 +18,7 @@ const NavbarMenu = defineComponent({
           data-open={dataAttr(ctx?.isMenuOpen.value)}
           style={{
             '--navbar-height': ctx?.height,
+            paddingTop: ctx?.isMenuOpen.value ? '0.5rem' : '0',
             height: ctx?.isMenuOpen.value ? 'calc(100vh - var(--navbar-height) - 1px)' : '0',
             overflow: 'hidden',
             transitionDuration: '300ms'
