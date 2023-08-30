@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import type { LinkVariantProps } from '@nextui-org/theme'
 import { link } from '@nextui-org/theme'
 import type { HTMLEchoUIProps } from '@echoui/system'
@@ -17,11 +17,12 @@ interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
 export type UseLinkProps = Props
 
 export const useLink = (props: UseLinkProps) => {
+  const { class: className } = useAttrs()
   const { as } = props
 
   const Component = as || 'a'
 
-  const styles = computed(() => link(props))
+  const styles = computed(() => link({ ...props, className: className as string }))
 
   const getLinkProps = computed(() => ({
     class: styles.value,
