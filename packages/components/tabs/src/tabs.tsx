@@ -20,9 +20,8 @@ const isUndefined = (value: any): value is undefined => typeof value === 'undefi
 const Tabs = defineComponent({
   props,
 
-  setup (props, { emit }) {
+  setup (props, { emit, slots }) {
     const selectedKey = isUndefined(props.selectedKey) ? ref(props.defaultSelectedKey) : useVModel(props, 'selectedKey', emit)
-    const slots = useSlots()
     const selectedItem = ref()
     const { Component, values, getBaseProps, getTabListProps } = useTabs(props)
 
