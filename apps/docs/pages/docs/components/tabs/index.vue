@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Tabs, Tab } from '@echoui/vue'
 
-const sizes = ['sm', 'md', 'lg']
-const colors = ['default', 'primary', 'secondary', 'success', 'warning', 'danger']
-const variants = ['solid', 'underlined', 'bordered', 'light']
+const sizes = ['sm', 'md', 'lg'] as const
+const colors = ['default', 'primary', 'secondary', 'success', 'warning', 'danger'] as const
+const variants = ['solid', 'underlined', 'bordered', 'light'] as const
 
 const tabs = [
   {
@@ -58,19 +58,19 @@ const tabs = [
 
       <div class="flex flex-wrap gap-4">
         <Tabs v-for="size in sizes" :key="size" :size="size" default-selected-key="photos">
-          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
         </Tabs>
       </div>
 
       <div class="flex flex-wrap gap-4">
         <Tabs v-for="color in colors" :key="color" :color="color" default-selected-key="photos">
-          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
         </Tabs>
       </div>
 
       <div class="flex flex-wrap gap-4">
         <Tabs v-for="variant in variants" :key="variant" :variant="variant" default-selected-key="photos">
-          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
         </Tabs>
       </div>
     </div>
