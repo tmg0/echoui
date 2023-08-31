@@ -1,7 +1,7 @@
 import type { HTMLEchoUIProps } from '@echoui/system'
 import { useMousePressed } from '@vueuse/core'
 import { useMotion } from '@vueuse/motion'
-import { defineComponent, ref, type PropType, useSlots, computed } from 'vue'
+import { defineComponent, ref, type PropType, computed } from 'vue'
 import { dataAttr } from '@echoui/shared-utils'
 import type { ValuesType } from './use-tabs'
 
