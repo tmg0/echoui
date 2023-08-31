@@ -1,9 +1,9 @@
 import type { HTMLEchoUIProps } from '@echoui/system'
 import { useMousePressed } from '@vueuse/core'
-import { useMotion } from '@vueuse/motion'
 import { defineComponent, ref, type PropType, computed } from 'vue'
 import { dataAttr } from '@echoui/shared-utils'
 import type { ValuesType } from './use-tabs'
+import { TabCursor } from './tab-cursor'
 
 export interface TabProps extends HTMLEchoUIProps<'button'> {
   key?: string
@@ -12,7 +12,6 @@ export interface TabProps extends HTMLEchoUIProps<'button'> {
   disableCursorAnimation?: ValuesType['disableCursorAnimation']
   disableAnimation?: ValuesType['disableAnimation']
   isDisabled?: ValuesType['isDisabled']
-  isSelected?: ValuesType['isSelected']
   onClick?: () => void
 }
 
@@ -34,22 +33,16 @@ const Tab = defineComponent({
 
   setup (props) {
     const domRef = ref<HTMLElement>()
-    const montionRef = ref()
     const Component = props.as || 'button'
 
     const { pressed: isPressed } = useMousePressed({ target: domRef })
     const isMotion = computed(() => props.isSelected && !props.disableAnimation && !props.disableCursorAnimation)
 
-    const handleClick = () => {
+    const onClick = () => {
       props.onClick?.()
       if (!domRef.value) { return }
       domRef.value.scrollIntoView()
     }
-
-    useMotion(montionRef, {
-      initial: {},
-      enter: { transition: { type: 'spring', bounce: 0.15, duration: 500 } }
-    })
 
     return () => (
       <Component
@@ -59,9 +52,9 @@ const Tab = defineComponent({
         data-selected={dataAttr(props.isSelected)}
         data-slot="tab"
         class={props.slots?.tab?.()}
-        onClick={handleClick}
+        onClick={onClick}
       >
-        {isMotion.value && <span ref="montionRef" class={props.slots?.cursor()} />}
+        {isMotion.value && <TabCursor slots={props.slots} />}
 
         <div
           class={props.slots?.tabContent()}

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Tabs, Tab } from '@echoui/vue'
+
+const selectedKey = ref('photos')
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import { Tabs, Tab } from '@echoui/vue'
     </template>
 
     <div>
-      <Tabs>
+      <Tabs v-model:selected-key="selectedKey">
         <Tab key="photos" title="Photos" />
         <Tab key="music" title="Music" />
         <Tab key="videos" title="Videos" />

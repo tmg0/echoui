@@ -7,7 +7,6 @@ interface Props extends HTMLEchoUIProps<'div'> {
   disableAnimation?: boolean
   disableCursorAnimation?: boolean
   isDisabled?: boolean
-  isSelected?: boolean
 }
 
 export type ValuesType = {
@@ -15,7 +14,6 @@ export type ValuesType = {
   disableCursorAnimation?: boolean
   disableAnimation?: boolean
   isDisabled?: boolean
-  isSelected?: boolean
 };
 
 export type UseTabsProps = Props
@@ -23,7 +21,7 @@ export type UseTabsProps = Props
 export const useTabs = (props: UseTabsProps) => {
   const attrs = useAttrs()
 
-  const { as, isDisabled, isSelected, disableAnimation, disableCursorAnimation } = props
+  const { as, isDisabled, disableAnimation, disableCursorAnimation } = props
 
   const Component = as || 'div'
 
@@ -32,7 +30,6 @@ export const useTabs = (props: UseTabsProps) => {
   const values = computed<Record<string, any>>(() => ({
     slots: slots.value,
     isDisabled,
-    isSelected,
     disableAnimation,
     disableCursorAnimation
   }))
