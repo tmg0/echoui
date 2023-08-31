@@ -32,7 +32,7 @@ const Tabs = defineComponent({
 
     const layoutGroupEnabled = computed(() => !props.disableAnimation && !props.disableCursorAnimation)
 
-    provide('context', { tabsRef })
+    provide('context', { tabsRef, sharedCursor: ref({}) })
 
     const onClick = (key: string) => () => {
       selectedKey.value = key
