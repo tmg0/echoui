@@ -25,7 +25,7 @@ const Tabs = defineComponent({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const [_, tabs] = pickChildren(slots.default?.(), Tab)
       if (!tabs) { return tabs }
-      return tabs.map(({ props }) => <Tab {...{ ...props, ...values }} />)
+      return tabs.map(({ props }) => <Tab {...props} {...values.value} />)
     })
 
     return () => (

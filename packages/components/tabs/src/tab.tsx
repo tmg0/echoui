@@ -61,11 +61,12 @@ const Tab = defineComponent({
         class={props.slots?.tab?.()}
         onClick={handleClick}
       >
+        {isMotion.value && <span ref="montionRef" class={props.slots?.cursor()} />}
+
         <div
           class={props.slots?.tabContent()}
           data-slot="tabContent"
         >
-          {isMotion.value && <span ref="montionRef" class={props.slots?.cursor()} />}
           {props.title}
         </div>
       </Component>
