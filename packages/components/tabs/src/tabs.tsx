@@ -1,4 +1,4 @@
-import { computed, defineComponent, provide, ref } from 'vue'
+import { computed, defineComponent, provide, ref, type PropType } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { pickChildren } from '@echoui/vue-utils'
 import { Tab } from './tab'
@@ -12,7 +12,11 @@ const props = {
   defaultSelectedKey: { type: String, default: undefined },
   disableAnimation: Boolean,
   disableCursorAnimation: Boolean,
-  isDisabled: Boolean
+  isDisabled: Boolean,
+  variant: { type: String as PropType<UseTabsProps['variant']>, default: undefined },
+  color: { type: String as PropType<UseTabsProps['color']>, default: undefined },
+  size: { type: String as PropType<UseTabsProps['size']>, default: undefined },
+  radius: { type: String as PropType<UseTabsProps['radius']>, default: undefined }
 }
 
 const isUndefined = (value: any): value is undefined => typeof value === 'undefined'
@@ -41,7 +45,7 @@ const Tabs = defineComponent({
       return tabs.map((tab) => {
         const isSelected = selectedKey.value === tab.props.key
         if (isSelected) { selectedItem.value = tab?.children }
-        return <Tab isSelected={isSelected} onClick={onClick(tab.props.key)} {...tab.props} {...values.value} />
+        return <Tab isSelected={isSelected} onClick={onClick(tab.props.key)} {...values.value} {...tab.props}/>
       })
     })
 
@@ -53,9 +57,9 @@ const Tabs = defineComponent({
           </Component>
         </div>
 
-        <TabPanel key={selectedKey.value} {...values.value}>
+        {selectedItem.value?.default && <TabPanel key={selectedKey.value} {...values.value}>
           {selectedItem.value?.default?.()}
-        </TabPanel>
+        </TabPanel>}
       </div>
     )
   }

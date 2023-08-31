@@ -39,6 +39,7 @@ const Tab = defineComponent({
     const isMotion = computed(() => props.isSelected && !props.disableAnimation && !props.disableCursorAnimation)
 
     const onClick = () => {
+      if (props.isDisabled) { return }
       props.onClick?.()
       if (!domRef.value) { return }
       domRef.value.scrollIntoView()

@@ -7,6 +7,10 @@ interface Props extends HTMLEchoUIProps<'div'> {
   disableAnimation?: boolean
   disableCursorAnimation?: boolean
   isDisabled?: boolean
+  variant?: 'solid' | 'bordered' | 'light' | 'underlined'
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
 
 export type ValuesType = {

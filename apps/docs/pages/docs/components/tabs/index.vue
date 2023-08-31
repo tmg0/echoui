@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Tabs, Tab } from '@echoui/vue'
 
+const sizes = ['sm', 'md', 'lg']
+const colors = ['default', 'primary', 'secondary', 'success', 'warning', 'danger']
+const variants = ['solid', 'underlined', 'bordered', 'light']
+
 const tabs = [
   {
     id: 'photos',
@@ -29,14 +33,46 @@ const tabs = [
       Tabs organize content into multiple sections and allow users to navigate between them.
     </template>
 
-    <div>
-      <Tabs default-selected-key="photos">
-        <Tab v-for="item in tabs" :key="item.id" :title="item.label">
-          <div class="p-5 bg-content1 rounded-[14px]">
-            {{ item.content }}
-          </div>
-        </Tab>
-      </Tabs>
+    <div class="flex flex-col gap-4">
+      <div>
+        <Tabs default-selected-key="photos">
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label">
+            <div class="p-5 bg-content1 rounded-[14px]">
+              {{ item.content }}
+            </div>
+          </Tab>
+        </Tabs>
+      </div>
+
+      <div>
+        <Tabs default-selected-key="photos" is-disabled>
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
+        </Tabs>
+      </div>
+
+      <div>
+        <Tabs default-selected-key="photos">
+          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+        </Tabs>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <Tabs v-for="size in sizes" :key="size" :size="size" default-selected-key="photos">
+          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+        </Tabs>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <Tabs v-for="color in colors" :key="color" :size="color" default-selected-key="photos">
+          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+        </Tabs>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <Tabs v-for="variant in variants" :key="variant" :variant="variant" default-selected-key="photos">
+          <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
+        </Tabs>
+      </div>
     </div>
   </NuxtLayout>
 </template>
