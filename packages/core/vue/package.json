@@ -19,6 +19,7 @@
     "@echoui/navbar": "workspace:^0.0.1",
     "@echoui/ripple": "workspace:^0.0.1",
     "@echoui/spinner": "workspace:^0.0.1",
-    "@echoui/switch": "workspace:^0.0.1"
+    "@echoui/switch": "workspace:^0.0.1",
+    "@echoui/tabs": "workspace:^"
   }
 }

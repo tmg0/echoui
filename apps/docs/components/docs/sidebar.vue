@@ -18,7 +18,8 @@ const paths = [
       { path: '/docs/components/chip' },
       { path: '/docs/components/navbar' },
       { path: '/docs/components/spinner' },
-      { path: '/docs/components/switch' }
+      { path: '/docs/components/switch' },
+      { path: '/docs/components/tabs' }
     ]
   }
 ]
