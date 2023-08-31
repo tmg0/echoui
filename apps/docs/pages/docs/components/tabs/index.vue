@@ -4,6 +4,7 @@ import { Tabs, Tab } from '@echoui/vue'
 const sizes = ['sm', 'md', 'lg'] as const
 const colors = ['default', 'primary', 'secondary', 'success', 'warning', 'danger'] as const
 const variants = ['solid', 'underlined', 'bordered', 'light'] as const
+const radiusList = ['full', 'lg', 'md', 'sm', 'none'] as const
 
 const tabs = [
   {
@@ -63,7 +64,13 @@ const tabs = [
       </div>
 
       <div class="flex flex-wrap gap-4">
-        <Tabs v-for="color in colors" :key="color" :color="color" default-selected-key="photos">
+        <Tabs v-for="radius in radiusList" :key="radius" :radius="radius" default-selected-key="photos">
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
+        </Tabs>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <Tabs v-for="color in colors" :key="color" :color="color" radius="full" default-selected-key="photos">
           <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
         </Tabs>
       </div>
