@@ -63,7 +63,7 @@ const tabs = [
       </div>
 
       <div class="flex flex-wrap gap-4">
-        <Tabs v-for="color in colors" :key="color" :size="color" default-selected-key="photos">
+        <Tabs v-for="color in colors" :key="color" :color="color" default-selected-key="photos">
           <Tab v-for="(item, index) in tabs" :key="item.id" :title="item.label" :is-disabled="index === 1" />
         </Tabs>
       </div>
