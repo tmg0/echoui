@@ -41,8 +41,6 @@ const Tab = defineComponent({
     const onClick = () => {
       if (props.isDisabled) { return }
       props.onClick?.()
-      if (!domRef.value) { return }
-      domRef.value.scrollIntoView()
     }
 
     return () => (
