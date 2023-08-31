@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { Tabs, Tab } from '@echoui/vue'
 
-const selectedKey = ref('photos')
-
 const tabs = [
   {
     id: 'photos',
@@ -32,7 +30,7 @@ const tabs = [
     </template>
 
     <div>
-      <Tabs v-model:selected-key="selectedKey">
+      <Tabs default-selected-key="photos">
         <Tab v-for="item in tabs" :key="item.id" :title="item.label">
           <div class="p-5 bg-content1 rounded-[14px]">
             {{ item.content }}

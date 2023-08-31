@@ -1,5 +1,6 @@
 import { defineComponent, ref, type PropType } from 'vue'
 import { useMotion } from '@vueuse/motion'
+import { useTabsContext } from './use-tabs-context'
 
 const props = {
   slots: { type: Object as PropType<any>, default: undefined }
@@ -10,8 +11,9 @@ const TabCursor = defineComponent({
 
   setup (props) {
     const domRef = ref<HTMLElement>()
+    const { tabsRef } = useTabsContext()
 
-    const isToRight = !document.querySelector('#tab-cursor')
+    const isToRight = !tabsRef.value?.querySelector('#tab-cursor')
 
     useMotion(domRef, {
       initial: { x: isToRight ? '-50%' : '50%' },

@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, useSlots } from 'vue'
+import { computed, defineComponent, provide, ref } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { pickChildren } from '@echoui/vue-utils'
 import { Tab } from './tab'
@@ -23,9 +23,12 @@ const Tabs = defineComponent({
   setup (props, { emit, slots }) {
     const selectedKey = isUndefined(props.selectedKey) ? ref(props.defaultSelectedKey) : useVModel(props, 'selectedKey', emit)
     const selectedItem = ref()
+    const tabsRef = ref()
     const { Component, values, getBaseProps, getTabListProps } = useTabs(props)
 
     const layoutGroupEnabled = computed(() => !props.disableAnimation && !props.disableCursorAnimation)
+
+    provide('context', { tabsRef })
 
     const onClick = (key: string) => () => {
       selectedKey.value = key
@@ -44,7 +47,7 @@ const Tabs = defineComponent({
 
     return () => (
       <div>
-        <div {...getBaseProps.value}>
+        <div ref={tabsRef} {...getBaseProps.value}>
           <Component {...getTabListProps.value}>
             {layoutGroupEnabled.value ? tabs.value : tabs.value}
           </Component>
