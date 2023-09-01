@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Tabs, Tab } from '@echoui/vue'
 
+const selectedKey = ref('photos')
+
 const sizes = ['sm', 'md', 'lg'] as const
 const colors = ['default', 'primary', 'secondary', 'success', 'warning', 'danger'] as const
 const variants = ['solid', 'underlined', 'bordered', 'light'] as const
@@ -79,6 +81,15 @@ const tabs = [
         <Tabs v-for="variant in variants" :key="variant" :variant="variant" default-selected-key="photos">
           <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
         </Tabs>
+      </div>
+
+      <div>
+        <Tabs v-model:selected-key="selectedKey">
+          <Tab v-for="item in tabs" :key="item.id" :title="item.label" />
+        </Tabs>
+        <div class="text-sm text-default-500">
+          Selected: {{ selectedKey }}
+        </div>
       </div>
     </div>
   </NuxtLayout>
