@@ -6,6 +6,22 @@ const router = useRouter()
 
 const paths = [
   {
+    path: '/docs/guide',
+    children: [
+      { path: '/docs/guide/introduction' },
+      { path: '/docs/guide/installation' }
+    ]
+  },
+  {
+    path: '/docs/customization',
+    children: [
+      { path: '/docs/customization/theme' },
+      { path: '/docs/customization/layout' },
+      { path: '/docs/customization/colors' },
+      { path: '/docs/customization/dark-mode' }
+    ]
+  },
+  {
     path: '/docs/components',
     children: [
       { path: '/docs/components/avatar' },
