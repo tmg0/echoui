@@ -1,10 +1,11 @@
-import { computed, useAttrs } from 'vue'
+import { computed, useAttrs, type DefineComponent } from 'vue'
 import type { LinkVariantProps } from '@nextui-org/theme'
 import { link } from '@nextui-org/theme'
 import type { HTMLEchoUIProps } from '@echoui/system'
 import { dataAttr } from '@echoui/shared-utils'
 
-interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
+interface Props extends HTMLEchoUIProps<any>, LinkVariantProps {
+  as: 'div' | DefineComponent
   href?: string
   isExternal?: boolean
   showAnchorIcon?: boolean

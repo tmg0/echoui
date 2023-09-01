@@ -6,6 +6,7 @@ import { type UseLinkProps, useLink } from './use-link'
 export interface LinkProps extends UseLinkProps { }
 
 const props = {
+  as: { type: [Object, String] as PropType<LinkProps['as']>, default: 'a' },
   isExternal: Boolean,
   showAnchorIcon: Boolean,
   isFocused: Boolean,
@@ -22,13 +23,13 @@ const Link = defineComponent({
   props,
   setup (props, { slots }) {
     const anchorIcon = slots.anchorIcon ? slots.anchorIcon?.() : <LinkIcon class={linkAnchorClasses} />
-    const { getLinkProps } = useLink(props)
+    const { Component, getLinkProps } = useLink(props)
 
     return () => (
-      <a {...getLinkProps.value}>
+      <Component {...getLinkProps.value}>
         {slots.default?.()}
         {props.showAnchorIcon && anchorIcon}
-      </a>
+      </Component>
     )
   }
 })

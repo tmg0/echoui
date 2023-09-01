@@ -52,5 +52,7 @@ const onNav = () => { router.push('/docs/guide') }
         </Button>
       </div>
     </div>
+
+    <MarketingFloatingComponents />
   </section>
 </template>
