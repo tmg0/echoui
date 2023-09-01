@@ -40,7 +40,7 @@ const tabs = [
       <div>
         <Tabs default-selected-key="photos">
           <Tab v-for="item in tabs" :key="item.id" :title="item.label">
-            <Card>
+            <Card disable-ripple>
               <CardBody>
                 {{ item.content }}
               </CardBody>
