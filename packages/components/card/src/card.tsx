@@ -7,7 +7,8 @@ export type CardProps = UseCardProps
 const props = {
   disableRipple: Boolean,
   isPressable: Boolean,
-  disableAnimation: Boolean
+  disableAnimation: Boolean,
+  isFooterBlurred: Boolean
 }
 
 const Card = defineComponent({
