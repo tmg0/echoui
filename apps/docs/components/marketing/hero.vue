@@ -4,7 +4,7 @@ import { ArrowRightIcon } from '@echoui/shared-icons'
 import { title, subtitle } from '../primitives'
 
 const router = useRouter()
-const onNav = () => { router.push('/docs/components/button') }
+const onNav = () => { router.push('/docs/guide') }
 </script>
 
 <template>
