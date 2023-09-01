@@ -6,7 +6,7 @@ export type CardProps = UseCardProps
 
 const props = {
   disableRipple: Boolean,
-  isPressable: { type: Boolean, default: true },
+  isPressable: Boolean,
   disableAnimation: Boolean
 }
 

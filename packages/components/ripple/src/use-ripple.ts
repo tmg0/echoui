@@ -30,6 +30,7 @@ export function useRipple (props: UseRippleProps = {}) {
         ripples.value = ripples.value.filter((_, index) => index !== i)
       }, removeAfter)
       timeoutIds.push(timeoutId)
+      clearTimeout(timeoutId)
     })
   })
 
