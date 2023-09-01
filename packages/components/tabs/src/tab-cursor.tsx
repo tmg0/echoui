@@ -1,4 +1,4 @@
-import { defineComponent, ref, type PropType, onBeforeUnmount, onMounted, nextTick } from 'vue'
+import { defineComponent, ref, type PropType, onBeforeUnmount, onMounted } from 'vue'
 import { useMotion } from '@vueuse/motion'
 import { useElementBounding } from '@vueuse/core'
 import { useTabsContext } from './use-tabs-context'
@@ -11,18 +11,17 @@ const TabCursor = defineComponent({
   props,
 
   setup (props) {
+    let x = 0
     const domRef = ref<HTMLElement>()
-    const { tabsRef, sharedCursor } = useTabsContext()
+    const { sharedCursor } = useTabsContext()
     const rect = useElementBounding(domRef)
 
-    const isToRight = !tabsRef.value?.querySelector('#tab-cursor')
-
-    onMounted(async () => {
+    onMounted(() => {
+      x = rect.x.value
       let _x = 0
       if (sharedCursor.value.x) {
         _x = sharedCursor.value.x - rect.x.value
       }
-      await nextTick()
       useMotion(domRef, {
         initial: { x: `${_x}px` },
         enter: { x: 0, transition: { type: 'spring', bounce: 0.15, duration: 500 } }
@@ -30,14 +29,12 @@ const TabCursor = defineComponent({
     })
 
     onBeforeUnmount(() => {
-      sharedCursor.value.x = rect.x.value
-      sharedCursor.value.y = rect.y.value
+      sharedCursor.value.x = x
     })
 
     return () => (
       <span
         ref={domRef}
-        id="tab-cursor"
         data-slot="cursor"
         class={props.slots?.cursor()}
       />
