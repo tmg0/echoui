@@ -10,7 +10,7 @@ const props = {
   isExternal: Boolean,
   showAnchorIcon: Boolean,
   isFocused: Boolean,
-  isDisabled: Boolean,
+  isDisabled: { type: Boolean, default: false },
   isFocusVisible: Boolean,
   href: String,
   color: { type: String as PropType<LinkProps['color']>, default: undefined },
