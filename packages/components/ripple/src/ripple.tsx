@@ -30,7 +30,7 @@ const RippleItem = defineComponent({
   setup (props) {
     const domRef = ref()
 
-    const duration = clamp(0.01 * props.size, 0.2, props.size > 100 ? 0.75 : 0.5) * 1000
+    const duration = clamp(0.01 * props.size, 0.2, props.size > 500 ? 0.75 : 0.5) * 1000
 
     useMotion(domRef, {
       initial: { transform: 'scale(0)', opacity: 0.35 },
