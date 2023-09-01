@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Switch } from '@echoui/vue'
+import { Card, CardBody, Spinner, Switch } from '@echoui/vue'
 import { useDark, useToggle } from '@vueuse/core'
 import MoonFilledIcon from '../icons/moon.vue'
 import SunFilledIcon from '../icons/sun.vue'
@@ -25,6 +25,15 @@ const isSelected = computed({
       </template>
     </Switch>
 
-    <MarketingFloatingTabs class="absolute left-[170px] -top-[160px] animate-[levitate_17s_ease_infinite_1s]" />
+    <MarketingFloatingTabs />
+
+    <Card
+      class="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] z-10 max-w-fit border-none"
+      shadow="lg"
+    >
+      <CardBody>
+        <Spinner color="secondary" size="lg" />
+      </CardBody>
+    </Card>
   </div>
 </template>

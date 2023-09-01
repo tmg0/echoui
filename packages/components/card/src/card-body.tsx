@@ -1,5 +1,5 @@
 import type { HTMLEchoUIProps } from '@echoui/system'
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent, useAttrs, type PropType } from 'vue'
 import { useCardContext } from './card-context'
 
 interface CardBodyProps extends HTMLEchoUIProps<'div'> { }
@@ -12,12 +12,13 @@ const CardBody = defineComponent({
   props,
 
   setup (props, { slots }) {
+    const attrs = useAttrs()
     const { as } = props
     const Component = as || 'div'
     const ctx = useCardContext()
 
     return () => (
-      <Component class={ctx?.value.slots.value.body?.()}>
+      <Component class={ctx?.value.slots.value.body?.({ class: attrs.class as string })}>
         {slots.default?.()}
       </Component>
     )
