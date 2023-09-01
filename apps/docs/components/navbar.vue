@@ -43,7 +43,7 @@ const onNavi = (path: string) => {
       </NavbarItem>
 
       <NavbarItem v-for="(item, index) in menus" :key="item.path" :is-active="index === 1" class="hidden lg:flex">
-        <Link :color="isActive(item.path) ? undefined : 'foreground'" href="#" class="font-normal" :on-click="() => onNavi(item.path)">
+        <Link :color="isActive(item.path) ? undefined : 'foreground'" class="font-normal" :on-click="() => onNavi(item.path)">
           {{ item.label }}
         </Link>
       </NavbarItem>

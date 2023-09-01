@@ -26,7 +26,7 @@ const Link = defineComponent({
     const { Component, getLinkProps } = useLink(props)
 
     return () => (
-      <Component {...getLinkProps.value}>
+      <Component {...getLinkProps.value} style={{ cursor: props.isDisabled ? 'not-allowed' : 'pointer' }}>
         {slots.default?.()}
         {props.showAnchorIcon && anchorIcon}
       </Component>
