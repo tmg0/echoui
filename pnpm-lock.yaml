@@ -120,6 +120,25 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4
 
+  packages/components/card:
+    dependencies:
+      '@echoui/ripple':
+        specifier: workspace:^
+        version: link:../ripple
+      '@echoui/shared-utils':
+        specifier: workspace:^0.0.1
+        version: link:../../utilities/shared-utils
+      '@echoui/system':
+        specifier: workspace:^0.0.1
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: ^2.1.3
+        version: 2.1.3(tailwindcss@3.3.3)
+    devDependencies:
+      vue:
+        specifier: ^3.3.4
+        version: 3.3.4
+
   packages/components/chip:
     dependencies:
       '@echoui/shared-icons':
@@ -266,6 +285,9 @@ importers:
       '@echoui/button':
         specifier: workspace:^0.0.1
         version: link:../../components/button
+      '@echoui/card':
+        specifier: workspace:^
+        version: link:../../components/card
       '@echoui/chip':
         specifier: workspace:^0.0.1
         version: link:../../components/chip

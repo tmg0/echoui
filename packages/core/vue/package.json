@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@echoui/button": "workspace:^0.0.1",
+    "@echoui/card": "workspace:^",
     "@echoui/chip": "workspace:^0.0.1",
     "@echoui/divider": "workspace:^",
     "@echoui/link": "workspace:^0.0.1",
