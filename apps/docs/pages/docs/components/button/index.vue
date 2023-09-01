@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import { Button, ButtonGroup } from '@echoui/vue'
+import { Button, ButtonGroup, Divider } from '@echoui/vue'
 </script>
 
 <template>
-  <NuxtLayout name="mdx">
-    <template #title>
+  <div>
+    <h1>
       Button
-    </template>
+    </h1>
 
-    <template #description>
+    <p>
       Buttons allow users to perform actions and choose with a single tap.
-    </template>
+    </p>
+
+    <div class="flex gap-2 mt-6">
+      <Button size="sm">
+        <IconsSocialGithub />
+        Source
+      </Button>
+    </div>
+
+    <Divider class="my-8" />
 
     <div class="flex flex-col gap-4">
       <div class="flex gap-4 ">
@@ -134,5 +143,5 @@ import { Button, ButtonGroup } from '@echoui/vue'
         </ButtonGroup>
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>

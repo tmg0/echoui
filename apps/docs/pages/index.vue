@@ -1,13 +1,7 @@
-<script setup lang="ts">
-import { Button } from '@echoui/vue'
-
-const router = useRouter()
-</script>
-
 <template>
-  <main>
-    <Button color="primary" :on-click="() => router.push({ name: 'docs' })">
-      Get Started ->
-    </Button>
+  <main className="container mx-auto max-w-7xl px-6 flex-grow">
+    <section className="flex flex-col items-center justify-center">
+      <MarketingHero />
+    </section>
   </main>
 </template>

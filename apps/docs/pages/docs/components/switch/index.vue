@@ -7,14 +7,14 @@ const isSelected = ref(true)
 </script>
 
 <template>
-  <NuxtLayout name="mdx">
-    <template #title>
+  <div>
+    <h1>
       Switch
-    </template>
+    </h1>
 
-    <template #description>
+    <p>
       The Switch component is used as an alternative between checked and not checked states.
-    </template>
+    </p>
 
     <div class="flex flex-col gap-4">
       <div>
@@ -100,5 +100,5 @@ const isSelected = ref(true)
         </div>
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>

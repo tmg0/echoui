@@ -1,7 +1,7 @@
 <template>
-  <NuxtLayout name="mdx">
-    <template #title>
+  <div>
+    <h1>
       Card
-    </template>
-  </NuxtLayout>
+    </h1>
+  </div>
 </template>

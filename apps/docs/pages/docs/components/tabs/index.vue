@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Card, CardBody, Tabs, Tab } from '@echoui/vue'
+import { Card, CardBody, Divider, Tabs, Tab } from '@echoui/vue'
 
 const selectedKey = ref('photos')
 
@@ -28,13 +28,13 @@ const tabs = [
 </script>
 
 <template>
-  <NuxtLayout name="mdx">
-    <template #title>
-      Tabs
-    </template>
-    <template #description>
+  <div>
+    <h1>Tabs</h1>
+    <p>
       Tabs organize content into multiple sections and allow users to navigate between them.
-    </template>
+    </p>
+
+    <Divider class="my-8" />
 
     <div class="flex flex-col gap-4">
       <div>
@@ -94,5 +94,5 @@ const tabs = [
         </div>
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>

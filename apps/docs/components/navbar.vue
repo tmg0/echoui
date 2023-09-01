@@ -1,14 +1,28 @@
 <script setup lang="ts">
 import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle } from '@echoui/vue'
 
-const menuItems = ['Docs', 'Components', 'Blog', 'Figma']
+const menus = [
+  { label: 'Docs', path: '/docs/guide' },
+  { label: 'Components', path: '/docs/components' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Figma', path: '/figma' }
+]
 
 const route = useRoute()
+const router = useRouter()
 const isMenuOpen = ref(false)
 
 watch(() => route.path, () => {
   isMenuOpen.value = false
 })
+
+const isActive = (path: string) => {
+  return route.path.includes(path)
+}
+
+const onNavi = (path: string) => {
+  router.push({ path })
+}
 </script>
 
 <template>
@@ -29,9 +43,9 @@ watch(() => route.path, () => {
         </Button>
       </NavbarItem>
 
-      <NavbarItem v-for="(item, index) in menuItems" :key="item" :is-active="index === 1" class="hidden lg:flex">
-        <Link :color="index !== 1 ? 'foreground' : undefined" href="#" class="font-normal">
-          {{ item }}
+      <NavbarItem v-for="(item, index) in menus" :key="item.path" :is-active="index === 1" class="hidden lg:flex">
+        <Link :color="isActive(item.path) ? undefined : 'foreground'" href="#" class="font-normal" :on-click="() => onNavi(item.path)">
+          {{ item.label }}
         </Link>
       </NavbarItem>
     </NavbarContent>

@@ -3,14 +3,12 @@ import { Spinner } from '@echoui/vue'
 </script>
 
 <template>
-  <NuxtLayout name="mdx">
-    <template #title>
-      Spinner
-    </template>
+  <div>
+    <h1>Spinner</h1>
 
-    <template #description>
+    <p>
       Spinner express an unspecified wait time or display the length of a process.
-    </template>
+    </p>
 
     <div>
       <Spinner />
@@ -43,5 +41,5 @@ import { Spinner } from '@echoui/vue'
       <Spinner label="Warning" color="warning" label-color="warning" />
       <Spinner label="Danger" color="danger" label-color="danger" />
     </div>
-  </NuxtLayout>
+  </div>
 </template>
