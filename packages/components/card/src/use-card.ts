@@ -1,8 +1,9 @@
 import { type HTMLEchoUIProps } from '@echoui/system'
+import { useMousePressed } from '@vueuse/core'
 import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
 import { type CardReturnType, type CardVariantProps, card } from '@nextui-org/theme'
-import { computed, useAttrs, type ComputedRef } from 'vue'
+import { computed, useAttrs, type ComputedRef, type Ref } from 'vue'
 
 interface Props extends HTMLEchoUIProps<'div' | 'button'> {
   disableRipple?: boolean
@@ -25,8 +26,9 @@ export type ContextType = {
 
 export type UseCardProps = Props
 
-export const useCard = (props: UseCardProps) => {
+export const useCard = (props: UseCardProps & { ref: Ref }) => {
   const attrs = useAttrs()
+  const { pressed: isPressed } = useMousePressed({ target: props.ref })
   const { as } = props
 
   const Component = as || (props.isPressable ? 'button' : 'div')
@@ -52,6 +54,7 @@ export const useCard = (props: UseCardProps) => {
 
   const getCardProps = computed(() => ({
     class: slots.value.base({ class: baseStyles.value }),
+    'data-pressed': dataAttr(isPressed.value),
     'data-disabled': dataAttr(props.isDisabled),
     onClick
   }))

@@ -1,4 +1,4 @@
-import { defineComponent, provide } from 'vue'
+import { defineComponent, provide, ref } from 'vue'
 import { Ripple } from '@echoui/ripple'
 import { useCard, type UseCardProps } from './use-card'
 
@@ -14,12 +14,13 @@ const Card = defineComponent({
   props,
 
   setup (props, { slots }) {
-    const { Component, context, ripples, getCardProps } = useCard(props)
+    const domRef = ref()
+    const { Component, context, ripples, getCardProps } = useCard({ ...props, ref: domRef })
 
     provide('context', context)
 
     return () => (
-      <Component {...getCardProps.value}>
+      <Component ref={domRef} {...getCardProps.value}>
         {slots.default?.()}
         {props.isPressable && !props.disableAnimation && !props.disableRipple && <Ripple ripples={ripples.value} />}
       </Component>
