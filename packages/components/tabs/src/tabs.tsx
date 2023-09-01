@@ -50,7 +50,7 @@ const Tabs = defineComponent({
     })
 
     return () => (
-      <div>
+      <>
         <div ref={tabsRef} {...getBaseProps.value}>
           <Component {...getTabListProps.value}>
             {layoutGroupEnabled.value ? tabs.value : tabs.value}
@@ -60,7 +60,7 @@ const Tabs = defineComponent({
         {selectedItem.value?.default && <TabPanel key={selectedKey.value} {...values.value}>
           {selectedItem.value?.default?.()}
         </TabPanel>}
-      </div>
+      </>
     )
   }
 })

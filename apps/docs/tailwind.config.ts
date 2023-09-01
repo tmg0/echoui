@@ -295,6 +295,12 @@ module.exports = {
             opacity: 0,
             transform: 'scale(1.295)'
           }
+        },
+        animation: {
+          heartbeat: 'heartbeat 1s ease-in-out infinite',
+          levitate: 'levitate 5s ease infinite',
+          expand: 'expand 6s ease-out infinite both',
+          'expand-opacity': 'expand-opacity 6s linear infinite both'
         }
       }
     }

@@ -45,7 +45,7 @@ export const useTabs = (props: UseTabsProps) => {
 
   const getTabListProps = computed(() => ({
     'data-slot': 'tabList',
-    class: slots.value.tabList({ class: clsx(attrs.class) })
+    class: slots.value.tabList()
   }))
 
   return { Component, values, getBaseProps, getTabListProps }

@@ -1,4 +1,4 @@
-import { computed, type Ref } from 'vue'
+import { computed, useAttrs, type Ref } from 'vue'
 import { useMousePressed } from '@vueuse/core'
 import { toggle } from '@nextui-org/theme'
 import { dataAttr } from '@echoui/shared-utils'
@@ -15,6 +15,7 @@ interface Props extends HTMLEchoUIProps<'label'> {
 export type UseSwitchProps = Props & { ref: Ref }
 
 export const useSwitch = (props: UseSwitchProps) => {
+  const attrs = useAttrs()
   const { ref: domRef, as, isSelected, isDisabled } = props
   const { pressed } = useMousePressed({ target: domRef })
   const Component = as || 'label'
@@ -27,7 +28,7 @@ export const useSwitch = (props: UseSwitchProps) => {
   }
 
   const getBaseProps = computed(() => ({
-    class: slots.value.base(),
+    class: slots.value.base({ class: attrs.class as string }),
     'data-disabled': dataAttr(isDisabled),
     'data-selected': dataAttr(isSelected.value),
     'data-pressed': dataAttr(pressed.value)

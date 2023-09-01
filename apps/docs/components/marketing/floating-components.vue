@@ -15,7 +15,7 @@ const isSelected = computed({
 
 <template>
   <div class="hidden lg:flex flex-col relative z-20 w-1/2">
-    <Switch v-model:is-selected="isSelected" size="lg" class="absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse">
+    <Switch v-model:is-selected="isSelected" size="lg" class="absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]">
       <template #startContent>
         <SunFilledIcon :size="16" fill="#000" />
       </template>
@@ -24,5 +24,7 @@ const isSelected = computed({
         <MoonFilledIcon :size="16" />
       </template>
     </Switch>
+
+    <MarketingFloatingTabs class="absolute left-[170px] -top-[160px] animate-[levitate_17s_ease_infinite_1s]" />
   </div>
 </template>
