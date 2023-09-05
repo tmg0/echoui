@@ -35,12 +35,14 @@ export const useImage = (props: UseImageProps) => {
   const slots = computed(() => image({ ...props, showSkeleton: showSkeleton.value }))
 
   const getImgProps = computed(() => {
-    const imageStyles = clsx(attrs.class as string)
+    const imgStyles = clsx(attrs.class as string)
     return {
       src: props.src,
+      width: props.width,
+      height: props.height,
       sizes: props.sizes,
       'data-loaded': dataAttr(true),
-      class: slots.value.img({ class: imageStyles }),
+      class: slots.value.img({ class: imgStyles }),
       loading: props.loading
     }
   })
