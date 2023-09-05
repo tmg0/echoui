@@ -17,7 +17,7 @@ const isSelected = computed({
   <div class="hidden lg:flex flex-col relative z-20 w-1/2">
     <Switch v-model:is-selected="isSelected" size="lg" class="absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]">
       <template #startContent>
-        <SunFilledIcon :size="16" fill="#000" />
+        <SunFilledIcon :size="16" />
       </template>
 
       <template #endContent>

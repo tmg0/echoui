@@ -54,5 +54,7 @@ const onNav = () => { router.push('/docs/guide') }
     </div>
 
     <MarketingFloatingComponents />
+
+    <MarketingBgLooper />
   </section>
 </template>
