@@ -16,6 +16,7 @@
     "@echoui/card": "workspace:^",
     "@echoui/chip": "workspace:^0.0.1",
     "@echoui/divider": "workspace:^",
+    "@echoui/image": "workspace:^",
     "@echoui/link": "workspace:^0.0.1",
     "@echoui/navbar": "workspace:^0.0.1",
     "@echoui/ripple": "workspace:^0.0.1",
