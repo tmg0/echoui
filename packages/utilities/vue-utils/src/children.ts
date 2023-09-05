@@ -1,19 +1,37 @@
 import type { VNode, RendererNode, RendererElement } from 'vue'
+import { Fragment } from 'vue'
 
 type VueNode = VNode<RendererNode, RendererElement, { [key: string]: any }>
 
-const isSymbol = (value: any): value is symbol => typeof value === 'symbol'
+const isFragment = (value: any): value is symbol => value === Fragment
 
-export const pickChildren = (children: VueNode[] | undefined, targetNode: any) => {
-  if (!children) { return [[], undefined] }
-  if (children.length === 1) {
-    const [child] = children
-    if (isSymbol(child.type)) {
-      children = child.children as any
+const flatSlots = (slots: VueNode[] | undefined): VueNode[] => {
+  if (!slots) { return [] }
+  if (!slots.length) { return [] }
+
+  const s: VueNode[] = []
+
+  for (const slot of slots) {
+    if (!isFragment(slot.type)) {
+      s.push(slot)
+      continue
+    }
+
+    if (Array.isArray(slot.children)) {
+      slot.children.forEach((i) => {
+        if (i) {
+          s.push(i as VueNode)
+        }
+      })
     }
   }
 
-  if (!children || !children.length) { return [[], undefined] }
+  return s
+}
+
+export const pickChildren = (children: VueNode[] | undefined, targetNode: any) => {
+  children = flatSlots(children)
+  if (!children.length) { return [[], undefined] }
 
   const target: VueNode[] = []
   const withoutTargetChildren = children.map((child: any) => {
