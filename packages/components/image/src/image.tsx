@@ -33,7 +33,7 @@ const Image = defineComponent({
 
     if (props.isBlurred) {
       // clone element to add isBlurred prop to the cloned image
-      return (
+      return () => (
         <div {...getWrapperProps.value}>
           {props.isZoomed ? zoomed : img}
         </div>
@@ -41,7 +41,7 @@ const Image = defineComponent({
     }
 
     if (props.isZoomed || !props.disableSkeleton || props.fallbackSrc) {
-      return <div {...getWrapperProps.value}> {props.isZoomed ? zoomed : img}</div>
+      return () => <div {...getWrapperProps.value}> {props.isZoomed ? zoomed : img}</div>
     }
 
     return () => img

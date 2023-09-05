@@ -24,7 +24,7 @@ export type UseImageProps = Props & ImageVariantProps
 export const useImage = (props: UseImageProps) => {
   const attrs = useAttrs()
   const { isLoading: loading, error } = useVueImage({ src: props.src ?? attrs.src as string })
-  const isImgLoaded = computed(() => !error.value && !!loading.value)
+  const isImgLoaded = computed(() => !error.value && !loading.value)
   const isLoading = computed(() => loading.value || props.isLoading)
   const showFallback = computed(() => (!props.src || !isImgLoaded.value) && !!props.fallbackSrc)
   const showSkeleton = computed(() => isLoading.value && !props.disableSkeleton)
@@ -39,7 +39,7 @@ export const useImage = (props: UseImageProps) => {
     return {
       src: props.src,
       sizes: props.sizes,
-      'data-loaded': dataAttr(isImgLoaded.value),
+      'data-loaded': dataAttr(true),
       class: slots.value.img({ class: imageStyles }),
       loading: props.loading
     }

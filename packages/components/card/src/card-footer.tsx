@@ -1,4 +1,3 @@
-import { clsx } from '@echoui/shared-utils'
 import type { HTMLEchoUIProps } from '@echoui/system'
 import { computed, defineComponent, type PropType } from 'vue'
 import { useCardContext } from './card-context'
@@ -12,15 +11,17 @@ const props = {
 const CardFooter = defineComponent({
   props,
 
-  setup (props, { slots, attrs }) {
+  setup (props, { slots }) {
     const { as } = props
     const ctx = useCardContext()
     const Component = as || 'div'
 
-    const footerStyles = computed(() => clsx(attrs.class))
+    const getCardFooterProps = computed(() => ({
+      class: ctx?.slots.value.footer?.()
+    }))
 
     return () => (
-      <Component class={ctx?.value.slots.value.base?.({ class: footerStyles.value })}>
+      <Component {...getCardFooterProps.value}>
         {slots.default?.()}
       </Component>
     )

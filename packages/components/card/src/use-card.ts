@@ -44,16 +44,17 @@ export const useCard = (props: UseCardProps & { ref: Ref }) => {
   const slots = computed(() => card(props))
   const baseStyles = computed(() => attrs.class as string)
 
-  const context = computed<ContextType>(() => ({
+  const context: ContextType = {
     isDisabled: props.isDisabled,
     isFooterBlurred: props.isFooterBlurred,
     disableAnimation: props.disableAnimation,
     fullWidth: props.fullWidth,
     slots
-  }))
+  }
 
   const getCardProps = computed(() => ({
     class: slots.value.base({ class: baseStyles.value }),
+    tabIndex: props.isPressable ? 0 : -1,
     'data-pressed': dataAttr(isPressed.value),
     'data-disabled': dataAttr(props.isDisabled),
     onClick

@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-span-12 lg:col-span-10 xl:col-span-8 lg:px-16 mt-10">
-          <div className="w-full prose prose-neutral">
+          <div class="w-full">
             <slot />
           </div>
 
@@ -24,14 +24,14 @@
 
     <div
       aria-hidden="true"
-      className="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-0"
+      class="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-0"
     >
       <img remove-wrapper alt="docs left background" src="/gradients/docs-left.png">
     </div>
 
     <div
       aria-hidden="true"
-      className="fixed hidden dark:md:block dark:opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-0 rotate-12"
+      class="fixed hidden dark:md:block dark:opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-0 rotate-12"
     >
       <img remove-wrapper alt="docs right background" src="/gradients/docs-right.png">
     </div>

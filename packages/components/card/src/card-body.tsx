@@ -18,7 +18,7 @@ const CardBody = defineComponent({
     const ctx = useCardContext()
 
     return () => (
-      <Component class={ctx?.value.slots.value.body?.({ class: attrs.class as string })}>
+      <Component class={ctx?.slots.value.body?.({ class: attrs.class as string })}>
         {slots.default?.()}
       </Component>
     )
