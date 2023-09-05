@@ -48,6 +48,17 @@ const isSelected = computed({
 
     <MarketingFloatingTabs />
 
+    <DemosUserTwitterCard class="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
+
+    <Card
+      class="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
+      shadow="lg"
+    >
+      <CardBody>
+        <EchouiLogo :size="60" />
+      </CardBody>
+    </Card>
+
     <Card
       class="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] z-10 max-w-fit border-none"
       shadow="lg"

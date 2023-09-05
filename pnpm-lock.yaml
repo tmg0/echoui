@@ -90,11 +90,14 @@ importers:
       '@echoui/ripple':
         specifier: workspace:^0.0.1
         version: link:../ripple
+      '@echoui/shared-utils':
+        specifier: workspace:^
+        version: link:../../utilities/shared-utils
       '@echoui/spinner':
         specifier: workspace:^0.0.1
         version: link:../spinner
       '@echoui/system':
-        specifier: workspace:^0.0.1
+        specifier: workspace:^
         version: link:../../core/system
       '@nextui-org/theme':
         specifier: ^2.1.2
@@ -313,6 +316,9 @@ importers:
 
   packages/core/vue:
     dependencies:
+      '@echoui/avatar':
+        specifier: workspace:^
+        version: link:../../components/avatar
       '@echoui/button':
         specifier: workspace:^0.0.1
         version: link:../../components/button

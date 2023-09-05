@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@echoui/avatar": "workspace:^",
     "@echoui/button": "workspace:^0.0.1",
     "@echoui/card": "workspace:^",
     "@echoui/chip": "workspace:^0.0.1",
