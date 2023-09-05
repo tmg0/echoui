@@ -25,7 +25,7 @@ const onNav = () => { router.push('/docs/guide') }
       </div>
 
       <h2 :class="subtitle({ fullWidth: true, class: 'text-center md:text-left' })">
-        Beautiful, fast and modern Vue UI library.
+        Beautiful, fast and modern Vue UI library like NextUI.
       </h2>
 
       <div class="flex flex-col md:flex-row items-center gap-4">
