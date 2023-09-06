@@ -27,7 +27,7 @@ const onNavi = (path: string) => {
 
 <template>
   <EchoUINavbar v-model:is-menu-open="isMenuOpen" max-width="xl">
-    <NavbarContent class="hidden sm:flex gap-4" justify="center">
+    <NavbarContent class="flex gap-4" justify="center">
       <NavbarItem>
         <NavbarBrand>
           <div class="flex items-center gap-1 cursor-pointer" @click="onNavi('/')">
@@ -39,7 +39,7 @@ const onNavi = (path: string) => {
         </NavbarBrand>
       </NavbarItem>
 
-      <NavbarItem>
+      <NavbarItem class="hidden lg:flex">
         <Button radius="full" class="text-xs h-6 w-[74px] py-1 min-w-fit sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20">
           v0.0.1
         </Button>
@@ -52,10 +52,10 @@ const onNavi = (path: string) => {
       </NavbarItem>
     </NavbarContent>
     <NavbarContent justify="end">
-      <NavbarItem>
+      <NavbarItem class="hidden md:flex">
         <IconsSocialGithub />
       </NavbarItem>
-      <NavbarItem>
+      <NavbarItem class="hidden md:flex">
         <ThemeSwitch />
       </NavbarItem>
       <NavbarItem class="hidden lg:flex">
@@ -71,7 +71,7 @@ const onNavi = (path: string) => {
         </Button>
       </NavbarItem>
 
-      <NavbarMenuToggle class="hidden sm:flex lg:hidden ml-4" />
+      <NavbarMenuToggle class="flex lg:hidden ml-4" />
     </NavbarContent>
 
     <NavbarMenu>

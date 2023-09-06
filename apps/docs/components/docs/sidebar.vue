@@ -52,7 +52,7 @@ const onNav = (path: string) => {
         <div class="flex items-center gap-3 cursor-pointer">
           <span class="w-px h-px block ml-0 mr-1" />
           <span class="flex items-center gap-3">
-            <span class="capitalize text-base">{{ section.path.split('/').at(-1) }}</span>
+            <span class="capitalize text-base">{{ section.path.split('/').filter(Boolean).at(-1) }}</span>
           </span>
         </div>
 
@@ -64,7 +64,7 @@ const onNav = (path: string) => {
               class="capitalize ml-4 before:content-[''] before:bg-default-300 before:mr-4 before:w-1 before:h-1 before:rounded-full cursor-pointer"
               @click="onNav(child.path)"
             >
-              {{ child.path.split('/').at(-1)?.replaceAll('-', ' ') }}
+              {{ child.path.split('/').filter(Boolean).at(-1)?.replaceAll('-', ' ') }}
             </Link>
           </li>
         </div>
