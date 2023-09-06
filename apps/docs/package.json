@@ -2,9 +2,8 @@
   "name": "@echoui/docs",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev --host",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
+    "dev": "nuxt dev",
+    "build": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
