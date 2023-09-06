@@ -34,7 +34,7 @@ const onNav = () => { router.push('/docs/guide') }
           color="primary"
           radius="full"
           size="lg"
-          :on-click="() => onNav()"
+          @click="onNav"
         >
           Get Started
           <ArrowRightIcon :stroke-width="2" class="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform" />

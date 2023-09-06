@@ -12,7 +12,6 @@ export interface TabProps extends HTMLEchoUIProps<'button'> {
   disableCursorAnimation?: ValuesType['disableCursorAnimation']
   disableAnimation?: ValuesType['disableAnimation']
   isDisabled?: ValuesType['isDisabled']
-  onClick?: () => void
 }
 
 const props = {
@@ -23,15 +22,15 @@ const props = {
   disableCursorAnimation: Boolean,
   disableAnimation: Boolean,
   isDisabled: Boolean,
-  isSelected: Boolean,
-  onClick: Function as PropType<TabProps['onClick']>
+  isSelected: Boolean
 }
 
 const Tab = defineComponent({
   name: 'EchoTab',
   props,
+  emits: ['click'],
 
-  setup (props) {
+  setup (props, { emit }) {
     const domRef = ref<HTMLElement>()
     const Component = props.as || 'button'
 
@@ -40,7 +39,7 @@ const Tab = defineComponent({
 
     const onClick = () => {
       if (props.isDisabled) { return }
-      props.onClick?.()
+      emit('click')
     }
 
     return () => (

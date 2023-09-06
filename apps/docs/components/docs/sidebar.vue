@@ -62,7 +62,7 @@ const onNav = (path: string) => {
               color="foreground"
               :class="{ 'text-default-300': child.path !== route.path }"
               class="capitalize ml-4 before:content-[''] before:bg-default-300 before:mr-4 before:w-1 before:h-1 before:rounded-full cursor-pointer"
-              :on-click="() => onNav(child.path)"
+              @click="onNav(child.path)"
             >
               {{ child.path.split('/').at(-1)?.replaceAll('-', ' ') }}
             </Link>

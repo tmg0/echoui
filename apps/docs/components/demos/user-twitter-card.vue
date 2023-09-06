@@ -30,7 +30,7 @@ const toggleFollowedState = () => { isFollowed.value = !isFollowed.value }
         radius="full"
         size="sm"
         :variant="isFollowed ? 'bordered' : 'solid'"
-        :on-click="toggleFollowedState"
+        @click="toggleFollowedState"
       >
         {{ isFollowed ? "Unfollow" : "Follow" }}
       </Button>

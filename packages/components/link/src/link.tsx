@@ -15,15 +15,16 @@ const props = {
   href: String,
   color: { type: String as PropType<LinkProps['color']>, default: undefined },
   size: String as PropType<LinkProps['size']>,
-  underline: String as PropType<LinkProps['underline']>,
-  onClick: Function as PropType<() => void>
+  underline: String as PropType<LinkProps['underline']>
 }
 
 const Link = defineComponent({
   props,
-  setup (props, { slots }) {
+  emits: ['click'],
+  setup (props, { emit, slots }) {
+    const onClick = () => { emit('click') }
     const anchorIcon = slots.anchorIcon ? slots.anchorIcon?.() : <LinkIcon class={linkAnchorClasses} />
-    const { Component, getLinkProps } = useLink(props)
+    const { Component, getLinkProps } = useLink({ ...props, onClick })
 
     return () => (
       <Component {...getLinkProps.value} style={{ cursor: props.isDisabled ? 'not-allowed' : 'pointer' }}>

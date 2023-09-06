@@ -16,16 +16,18 @@ const props = {
   disableAnimation: Boolean as PropType<ButtonProps['disableAnimation']>,
   disableRipple: Boolean as PropType<ButtonProps['disableRipple']>,
   isIconOnly: Boolean as PropType<ButtonProps['isIconOnly']>,
-  fullWidth: Boolean as PropType<ButtonProps['fullWidth']>,
-  onClick: Function as PropType<ButtonProps['onClick']>
+  fullWidth: Boolean as PropType<ButtonProps['fullWidth']>
 }
 
 const Button = defineComponent({
   props,
 
-  setup (props: ButtonProps, { slots }) {
+  emits: ['click'],
+
+  setup (props: ButtonProps, { slots, emit }) {
     const domRef = ref()
-    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, ref: domRef })
+    const onClick = () => { emit('click') }
+    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, onClick, ref: domRef })
 
     return () => (
       <Component ref={domRef} class={styles.value} {...getButtonProps.value}>
