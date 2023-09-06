@@ -22,7 +22,7 @@ const props = {
 const Button = defineComponent({
   props,
 
-  emits: ['click'],
+  emits: ['press', 'pressStart', 'pressEnd', 'pressChange', 'pressUp', 'keyDown', 'keyUp', 'click'],
 
   setup (props: ButtonProps, { slots, emit }) {
     const domRef = ref()
