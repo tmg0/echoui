@@ -1,6 +1,6 @@
 import { type HTMLEchoUIProps } from '@echoui/system'
 import { button } from '@nextui-org/theme'
-import { computed, useAttrs, type Ref } from 'vue'
+import { computed, useAttrs, type Ref, watch } from 'vue'
 import { useMousePressed } from '@vueuse/core'
 import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
@@ -19,10 +19,12 @@ interface Props extends HTMLEchoUIProps<'button'> {
   disableRipple?: boolean
   isIconOnly?: boolean
   fullWidth?: boolean
-  onClick?: () => void
 }
 
-export type UseButtonProps = Props & { ref: Ref }
+export type UseButtonProps = Props & {
+  ref: Ref
+  emit: (event: 'press' | 'pressStart' | 'pressEnd' | 'pressChange' | 'pressUp' | 'keyDown' | 'keyUp' | 'click', ...args: any[]) => void
+}
 
 export const useButton = (props: UseButtonProps) => {
   const attrs = useAttrs()
@@ -31,6 +33,7 @@ export const useButton = (props: UseButtonProps) => {
 
   const {
     ref: domRef,
+    emit,
     as,
     size = groupContext?.size,
     color = groupContext?.color,
@@ -43,6 +46,12 @@ export const useButton = (props: UseButtonProps) => {
   } = props
 
   const { pressed: isPressed } = useMousePressed({ target: domRef })
+
+  watch(isPressed, (value) => {
+    emit('pressChange', value)
+    if (value) { emit('pressStart') }
+    if (!value) { emit('pressEnd') }
+  })
 
   const styles = computed(() => button({
     size,
@@ -62,7 +71,8 @@ export const useButton = (props: UseButtonProps) => {
   const Component = as || 'button'
 
   const onClick = (e: MouseEvent) => {
-    props.onClick?.()
+    emit('click')
+    emit('press')
     onRippleClickHandler(e)
   }
 

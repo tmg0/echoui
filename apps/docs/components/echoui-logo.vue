@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   size: number
-  fill: string
+  fill?: string
   padding?: number
 }
 

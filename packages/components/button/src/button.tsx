@@ -24,10 +24,9 @@ const Button = defineComponent({
 
   emits: ['press', 'pressStart', 'pressEnd', 'pressChange', 'pressUp', 'keyDown', 'keyUp', 'click'],
 
-  setup (props: ButtonProps, { slots, emit }) {
+  setup (props, { slots, emit }) {
     const domRef = ref()
-    const onClick = () => { emit('click') }
-    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, onClick, ref: domRef })
+    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, emit, ref: domRef })
 
     return () => (
       <Component ref={domRef} class={styles.value} {...getButtonProps.value}>
