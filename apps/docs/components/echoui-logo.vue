@@ -2,25 +2,43 @@
 interface Props {
   size: number
   fill: string
+  padding?: number
 }
 
-withDefaults(defineProps<Props>(), {
-  fill: '#2ac0dd'
+const props = withDefaults(defineProps<Props>(), {
+  fill: '#2ac0dd',
+  padding: 10
+})
+
+const emit = defineEmits(['click'])
+
+const STROKE_WIDTH = 2
+
+const position = computed(() => {
+  return {
+    cx: props.size / 2,
+    cy: props.size / 2,
+    r: props.size / 2 - props.padding - STROKE_WIDTH
+  }
 })
 </script>
 
 <template>
-  <div :style="{ width: `${size}px`, height: `${size}px`}" class="bg-[#11181c] dark:bg-[#ecedee] rounded-lg flex items-center justify-center">
-    <svg
-      viewBox="0 0 1024 1024"
+  <svg :width="size" :height="size" xmlns="http://www.w3.org/2000/svg" @click="emit('click')">
+    <circle
+      :cx="position.cx"
+      :cy="position.cy"
+      :r="position.r"
+      fill="none"
+      :stroke="fill"
+      :stroke-width="STROKE_WIDTH"
+    />
+
+    <circle
+      :cx="position.cx"
+      :cy="position.cy"
+      :r="position.r - 4"
       :fill="fill"
-      :width="size"
-      :height="size"
-    >
-      <path
-        d="M512 853.333333C370.773333 853.333333 256 738.56 256 597.333333 256 426.666667 512 138.666667 512 138.666667 512 138.666667 768 426.666667 768 597.333333 768 738.56 653.226667 853.333333 512 853.333333Z"
-        :stroke="fill"
-      />
-    </svg>
-  </div>
+    />
+  </svg>
 </template>

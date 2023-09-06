@@ -30,9 +30,12 @@ const onNavi = (path: string) => {
     <NavbarContent class="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
         <NavbarBrand>
-          <p class="font-sans text-3xl font-extralight text-inherit cursor-pointer" @click="onNavi('/')">
-            EchoUI
-          </p>
+          <div class="flex items-center gap-1 cursor-pointer" @click="onNavi('/')">
+            <EchouiLogo :size="36" :padding="3" />
+            <div class="font-sans text-2xl font-extralight text-inherit ">
+              EchoUI
+            </div>
+          </div>
         </NavbarBrand>
       </NavbarItem>
 
