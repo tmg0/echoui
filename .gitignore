@@ -37,3 +37,6 @@ yarn-error.log*
 
 # output
 dist
+
+# dude config
+dude.config.ts
