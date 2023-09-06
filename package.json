@@ -5,6 +5,7 @@
     "build": "turbo build --filter !@echoui/docs",
     "dev:docs": "turbo dev --filter @echoui/docs",
     "build:docs": "turbo build --filter @echoui/docs",
+    "deploy:docs": "dude build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "turbo:clean": "turbo daemon clean && rimraf ./node_modules/.cache/turbo",
