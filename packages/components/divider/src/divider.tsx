@@ -11,7 +11,7 @@ export const Divider = defineComponent({
   props,
 
   setup (props) {
-    const { Component, getDividerProps } = useDivider({ ...props })
+    const { Component, getDividerProps } = useDivider(props)
 
     return () => <Component {...getDividerProps.value} />
   }

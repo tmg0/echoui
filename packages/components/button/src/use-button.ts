@@ -1,6 +1,6 @@
 import { type HTMLEchoUIProps } from '@echoui/system'
 import { button } from '@nextui-org/theme'
-import { computed, useAttrs, type Ref, watch } from 'vue'
+import { computed, useAttrs, watch } from 'vue'
 import { useMousePressed } from '@vueuse/core'
 import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
@@ -21,19 +21,14 @@ interface Props extends HTMLEchoUIProps<'button'> {
   fullWidth?: boolean
 }
 
-export type UseButtonProps = Props & {
-  ref: Ref
-  emit: (event: 'press' | 'pressStart' | 'pressEnd' | 'pressChange' | 'pressUp' | 'keyDown' | 'keyUp' | 'click', ...args: any[]) => void
-}
+export type UseButtonProps = Props
 
-export const useButton = (props: UseButtonProps) => {
+export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => {
   const attrs = useAttrs()
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext?.isInGroup
 
   const {
-    ref: domRef,
-    emit,
     as,
     size = groupContext?.size,
     color = groupContext?.color,

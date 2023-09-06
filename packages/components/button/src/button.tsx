@@ -26,7 +26,7 @@ const Button = defineComponent({
 
   setup (props, { slots, emit }) {
     const domRef = ref()
-    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton({ ...props, emit, ref: domRef })
+    const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton(props, { emit, ref: domRef })
 
     return () => (
       <Component ref={domRef} class={styles.value} {...getButtonProps.value}>

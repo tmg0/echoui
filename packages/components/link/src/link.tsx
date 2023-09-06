@@ -22,12 +22,11 @@ const Link = defineComponent({
   props,
   emits: ['click'],
   setup (props, { emit, slots }) {
-    const onClick = () => { emit('click') }
     const anchorIcon = slots.anchorIcon ? slots.anchorIcon?.() : <LinkIcon class={linkAnchorClasses} />
-    const { Component, getLinkProps } = useLink({ ...props, onClick })
+    const { Component, getLinkProps } = useLink(props, { emit })
 
     return () => (
-      <Component {...getLinkProps.value} style={{ cursor: props.isDisabled ? 'not-allowed' : 'pointer' }}>
+      <Component {...getLinkProps.value}>
         {slots.default?.()}
         {props.showAnchorIcon && anchorIcon}
       </Component>

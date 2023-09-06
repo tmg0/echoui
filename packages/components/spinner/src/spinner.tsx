@@ -14,7 +14,7 @@ const Spinner = defineComponent({
   props,
 
   setup (props) {
-    const { slots, label, getSpinnerProps } = useSpinner({ ...props })
+    const { slots, label, getSpinnerProps } = useSpinner(props)
 
     return () => (
       <div class={slots.value.base()} {...getSpinnerProps}>

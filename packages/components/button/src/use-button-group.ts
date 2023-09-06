@@ -31,7 +31,7 @@ export const useButtonGroup = (props: UseButtonGroupProps & ContextType) => {
 
   const Component = as || 'div'
 
-  const styles = computed(() => buttonGroup({ ...props }))
+  const styles = computed(() => buttonGroup(props))
 
   const context = computed(() => ({
     size,

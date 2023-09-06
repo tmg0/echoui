@@ -11,12 +11,11 @@ interface Props extends HTMLEchoUIProps<'a'>, LinkVariantProps {
   isFocused?: boolean
   isDisabled?: boolean
   isFocusVisible?: boolean
-  onClick?: () => void
 }
 
 export type UseLinkProps = Props
 
-export const useLink = (props: UseLinkProps) => {
+export const useLink = (props: UseLinkProps, ctx: any) => {
   const attrs = useAttrs()
   const { as } = props
 
@@ -24,13 +23,16 @@ export const useLink = (props: UseLinkProps) => {
 
   const styles = computed(() => link({ ...props, className: attrs.class as string }))
 
+  const onClick = () => { ctx.emit('click') }
+
   const getLinkProps = computed(() => ({
     class: styles.value,
+    style: { cursor: props.isDisabled ? 'not-allowed' : 'pointer' },
     href: props.href,
     'data-focus': dataAttr(props.isFocused),
     'data-disabled': dataAttr(props.isDisabled),
     'data-focus-visible': dataAttr(props.isFocusVisible),
-    onClick: props.onClick
+    onClick
   }))
 
   return { Component, getLinkProps }

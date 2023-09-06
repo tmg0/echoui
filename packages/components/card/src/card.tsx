@@ -16,7 +16,7 @@ const Card = defineComponent({
 
   setup (props, { slots }) {
     const domRef = ref()
-    const { Component, context, ripples, getCardProps } = useCard({ ...props, ref: domRef })
+    const { Component, context, ripples, getCardProps } = useCard(props, { ref: domRef })
 
     provide('context', context)
 
