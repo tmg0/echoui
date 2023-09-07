@@ -3,7 +3,7 @@ import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, Navba
 
 const menus = [
   { label: 'Docs', path: '/docs/guide' },
-  { label: 'Components', path: '/docs/components' },
+  { label: 'Components', key: 'components', path: '/docs/components/avatar' },
   { label: 'Blog', path: '/blog' },
   { label: 'Figma', path: '/figma' }
 ]
@@ -16,8 +16,8 @@ watch(() => route.path, () => {
   isMenuOpen.value = false
 })
 
-const isActive = (path: string) => {
-  return route.path.includes(path)
+const isActive = (path: string, key?: string) => {
+  return route.path.includes(key ?? path)
 }
 
 const onNavi = (path: string) => {
@@ -46,7 +46,7 @@ const onNavi = (path: string) => {
       </NavbarItem>
 
       <NavbarItem v-for="(item, index) in menus" :key="item.path" :is-active="index === 1" class="hidden lg:flex">
-        <Link :color="isActive(item.path) ? undefined : 'foreground'" class="font-normal" @click="onNavi(item.path)">
+        <Link :color="isActive(item.path, item.key) ? undefined : 'foreground'" class="font-normal" @click="onNavi(item.path)">
           {{ item.label }}
         </Link>
       </NavbarItem>
