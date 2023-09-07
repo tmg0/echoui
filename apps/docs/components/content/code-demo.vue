@@ -2,11 +2,14 @@
 import { Card, CardBody, Tabs, Tab } from '@echoui/vue'
 
 const props = defineProps<{ files: string }>()
+const code = ref('')
 
-const DynamicVueLiveDemo = defineAsyncComponent(() => {
+const DynamicVueLiveDemo = defineAsyncComponent(async () => {
   if (!props.files) { return Promise.reject(props) }
   const path = props.files.split('-').filter(Boolean).join('/')
-  return import(/* @vite-ignore */`./${path}.vue`)
+  const component = await import(/* @vite-ignore */`./${path}.tsx`)
+  code.value = component.code.setup.trim()
+  return component.default
 })
 </script>
 
@@ -18,8 +21,8 @@ const DynamicVueLiveDemo = defineAsyncComponent(() => {
 
     <Tab key="code" title="Code">
       <Card>
-        <CardBody>
-          <slot />
+        <CardBody class="whitespace-pre-wrap">
+          {{ code }}
         </CardBody>
       </Card>
     </Tab>
