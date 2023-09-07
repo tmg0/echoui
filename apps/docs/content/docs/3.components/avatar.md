@@ -5,17 +5,16 @@ description: 'The Avatar component is used to represent a user, and displays the
 
 # Avatar
 
-::docs-code-demo
+::code-demo{files=button-usage}
+```vue
+<script setup lang="ts">
+import { Button } from '@echoui/vue'
+</script>
 
-#code
-```
-<div class="flex gap-3 items-center">
-  <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-  <Avatar name="Junior" />
-  <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-  <Avatar name="Jane" />
-  <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-  <Avatar name="Joe" />
-</div>
+<template>
+  <Button>
+    Primary
+  </Button>
+</template>
 ```
 ::
