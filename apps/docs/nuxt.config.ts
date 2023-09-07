@@ -2,11 +2,7 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
-  googleFonts: {
-    families: {
-      Inter: true
-    }
-  }
+  components: [{ path: '~/components', global: true }]
 })
