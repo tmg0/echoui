@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { Card, CardBody, Tabs, Tab } from '@echoui/vue'
-
-const modules = import.meta.glob('~/components/content/**/*.vue')
-const codes = import.meta.glob('~/components/content/**/*.vue', { as: 'raw', eager: true })
+import { modules, codes } from '.'
 
 const props = defineProps<{ files: string }>()
 const code = computed(() => codes[props.files])

@@ -1,4 +1,4 @@
-FROM nginx
-COPY apps/docs/.output/public /var/www/html
-COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 5174
+FROM node:19.9.0-alpine
+COPY apps/docs/.output /.output
+EXPOSE 3000
+CMD ["node", "/.output/server/index.mjs"]
