@@ -1,8 +1,14 @@
 FROM node:19.9.0-alpine
-COPY apps/docs /docs
 
-WORKDIR /docs
-RUN npm install && npm run build
+COPY . /echoui
 
+WORKDIR /echoui
+RUN npm i pnpm -g
+RUN npm i turbo -D
+RUN pnpm i
+
+WORKDIR /echoui/apps/docs
+RUN pnpm build
 EXPOSE 3000
-CMD ["node", "/docs/.output/server/index.mjs"]
+
+CMD ["node", "/echoui/apps/docs/.output/server/index.mjs"]
