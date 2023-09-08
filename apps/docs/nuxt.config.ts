@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  nitro: { preset: 'service-worker' }
 })
