@@ -7,9 +7,12 @@ const code = ref('')
 const DynamicVueLiveDemo = defineAsyncComponent(async () => {
   if (!props.files) { return Promise.reject(props) }
   const path = props.files.split('-').filter(Boolean).join('/')
-  const component = await import(/* @vite-ignore */`./${path}.tsx`)
-  code.value = component.code.setup.trim()
-  return component.default
+  const [module, raw] = await Promise.all([
+    import(/* @vite-ignore */`./${path}.vue`),
+    import(/* @vite-ignore */`./${path}.vue?raw`)
+  ])
+  code.value = raw.default
+  return module.default
 })
 </script>
 
