@@ -4,5 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
-  nitro: { preset: 'service-worker' }
+  nitro: { preset: 'service-worker' },
+  content: {
+    markdown: {
+      tags: {
+        h1: 'ProseH1',
+        hr: 'ProseHr',
+        p: 'ProseP'
+      }
+    }
+  }
 })

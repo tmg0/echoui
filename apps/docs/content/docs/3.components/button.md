@@ -3,37 +3,34 @@ title: 'Button'
 description: 'Buttons allow users to perform actions and choose with a single tap.'
 ---
 
-::prose-h1
-Button
-::
+# Button
 
-::prose-p
 Buttons allow users to perform actions and choose with a single tap.
-::
 
-:prose-hr
+---
 
 ## Usage
 
-:code-demo{files=button/usage}
+:code-demo{files=/components/content/button/usage.vue}
 
 ### Disabled
 
-:code-demo{files=button/disabled}
+:code-demo{files=/components/content/button/disabled.vue}
 
 ### Sizes
 
-:code-demo{files=button/sizes}
+:code-demo{files=/components/content/button/sizes.vue}
 
 ### Radius
 
-:code-demo{files=button/radius}
+:code-demo{files=/components/content/button/radius.vue}
 
 ### Colors
 
-:code-demo{files=button/colors}
+:code-demo{files=/components/content/button/colors.vue}
 
 ### Variants
 
-:code-demo{files=button/variants}
+:code-demo{files=/components/content/button/variants.vue}
+
 

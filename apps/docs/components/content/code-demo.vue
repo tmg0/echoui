@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import { Card, CardBody, Tabs, Tab } from '@echoui/vue'
 
-const props = defineProps<{ files: string }>()
-const code = ref('')
+const modules = import.meta.glob('~/components/content/**/*.vue')
+const codes = import.meta.glob('~/components/content/**/*.vue', { as: 'raw', eager: true })
 
-const DynamicVueLiveDemo = defineAsyncComponent(async () => {
-  if (!props.files) { return Promise.reject(props) }
-  const path = props.files.split('-').filter(Boolean).join('/')
-  const [module, raw] = await Promise.all([
-    import(/* @vite-ignore */`./${path}.vue`),
-    import(/* @vite-ignore */`./${path}.vue?raw`)
-  ])
-  code.value = raw.default
-  return module.default
+const props = defineProps<{ files: string }>()
+const code = computed(() => codes[props.files])
+
+const DynamicVueLiveDemo = defineAsyncComponent(() => {
+  return modules[props.files]?.() as any
 })
 </script>
 
