@@ -3,6 +3,7 @@ import { inject, ref, type Ref } from 'vue'
 export interface SharedCursor {
   x?: number
   y?: number
+  width?: number
 }
 
 export interface TabsContext {
