@@ -13,6 +13,7 @@
     "@nextui-org/theme": "^2.1.2",
     "@vueuse/core": "^10.4.1",
     "@vueuse/motion": "^2.0.0",
+    "shikiji": "^0.6.8",
     "tailwind-variants": "^0.1.13"
   },
   "devDependencies": {
