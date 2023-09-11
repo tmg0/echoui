@@ -4,17 +4,3 @@ description: 'The Avatar component is used to represent a user, and displays the
 ---
 
 # Avatar
-
-::code-demo{files=button-usage}
-```vue
-<script setup lang="ts">
-import { Button } from '@echoui/vue'
-</script>
-
-<template>
-  <Button>
-    Primary
-  </Button>
-</template>
-```
-::

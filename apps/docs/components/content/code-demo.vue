@@ -4,7 +4,6 @@ import { getHighlighter } from 'shikiji'
 import { modules, codes } from '.'
 
 const props = defineProps<{ files: string }>()
-const code = ref('')
 
 const DynamicVueLiveDemo = defineAsyncComponent(() => {
   return modules[props.files]?.() as any
@@ -15,7 +14,8 @@ const shiki = await getHighlighter({
   langs: ['vue']
 })
 
-code.value = shiki.codeToHtml(codes[props.files], { lang: 'javascript', theme: 'vitesse-dark' })
+const code = computed(() => shiki.codeToHtml(codes?.[props.files] ?? '', { lang: 'vue', theme: 'vitesse-dark' }))
+
 </script>
 
 <template>
