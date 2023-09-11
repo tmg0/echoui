@@ -35,6 +35,10 @@ You can render tabs dynamically by using `items` prop.
 
 :code-demo{files=/components/content/tabs/radius.vue}
 
+### Colors
+
+:code-demo{files=/components/content/tabs/colors.vue}
+
 ### Variants
 
 :code-demo{files=/components/content/tabs/variants.vue}
