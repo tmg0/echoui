@@ -3,7 +3,7 @@ import { Card, CardBody, Tabs, Tab } from '@echoui/vue'
 </script>
 
 <template>
-  <Tabs disabled-key="music" default-selected-key="photos">
+  <Tabs :disabled-keys="['music']" default-selected-key="photos">
     <Tab key="photos" title="Photos">
       <Card>
         <CardBody>

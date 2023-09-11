@@ -10,6 +10,7 @@ export type TabsProps = UseTabsProps
 const props = {
   selectedKey: { type: String, default: undefined },
   defaultSelectedKey: { type: String, default: undefined },
+  disabledKeys: { type: Array as PropType<string[]>, default: undefined },
   disableAnimation: Boolean,
   disableCursorAnimation: Boolean,
   isDisabled: Boolean,
@@ -44,8 +45,9 @@ const Tabs = defineComponent({
       if (!tabs) { return tabs }
       return tabs.map((tab) => {
         const isSelected = selectedKey.value === tab.props.key
+        const isDisabled = tab.props.isDisabled ?? props.disabledKeys?.includes(tab.props.key) ?? false
         if (isSelected) { selectedItem.value = tab?.children }
-        return <Tab isSelected={isSelected} onClick={onClick(tab.props.key)} {...values.value} {...tab.props}/>
+        return <Tab isSelected={isSelected} onClick={onClick(tab.props.key)} {...values.value} {...tab.props} isDisabled={isDisabled}/>
       })
     })
 
