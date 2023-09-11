@@ -54,3 +54,19 @@ You can add icons to the Button by passing the `startContent` or `endContent` sl
 You can also display a button without text by passing the `isIconOnly` prop and the desired icon as children.
 
 :code-demo{files=/components/content/button/icon-only.vue}
+
+### Custom Styles
+
+You can customize the `Button` component by passing custom Tailwind CSS classes to the component slots.
+
+:code-demo{files=/components/content/button/custom-styles.vue}
+
+## Button Group
+
+:code-demo{files=/components/content/button/group.vue}
+
+## Group Disabled
+
+The `ButtonGroup` component also accepts the `isDisabled` prop to disable all buttons inside it.
+
+:code-demo{files=/components/content/button/group-disabled.vue}

@@ -2,6 +2,7 @@ import type { HTMLEchoUIProps } from '@echoui/system'
 import { computed } from 'vue'
 import { buttonGroup } from '@nextui-org/theme'
 import { type ButtonProps } from './button'
+import type { ButtonGroupProps } from './button-group'
 
 export type ContextType = {
   size?: ButtonProps['size']
@@ -15,34 +16,23 @@ export type ContextType = {
   fullWidth?: boolean
 }
 
-interface Props extends HTMLEchoUIProps<'div'> {
-  variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
-  size?: 'sm' | 'md' | 'lg'
-  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-  fullWidth?: boolean
-  isDisabled?: boolean
-}
+interface Props extends HTMLEchoUIProps<'div'>, ButtonGroupProps {}
 
 export type UseButtonGroupProps = Props
 
-export const useButtonGroup = (props: UseButtonGroupProps & ContextType) => {
-  const { as, size, color, variant, radius, isIconOnly = false, isDisabled = false, disableAnimation = false, disableRipple, fullWidth = false } = props
-
-  const Component = as || 'div'
+export const useButtonGroup = (props: UseButtonGroupProps) => {
+  const Component = props.as || 'div'
 
   const styles = computed(() => buttonGroup(props))
 
   const context = computed(() => ({
-    size,
-    color,
-    variant,
-    radius,
-    isIconOnly,
-    isDisabled,
-    disableAnimation,
-    disableRipple,
-    fullWidth
+    isInGroup: true,
+    size: props.size,
+    color: props.color,
+    variant: props.variant,
+    radius: props.radius,
+    isDisabled: props.isDisabled,
+    fullWidth: props.fullWidth
   }))
 
   return { Component, styles, context }

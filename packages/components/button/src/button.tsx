@@ -11,7 +11,7 @@ const props = {
   spinnerPlacement: { type: String as PropType<'start' | 'end'>, default: 'start' },
   fullWidth: { type: Boolean, default: false },
   isIconOnly: { type: Boolean, default: false },
-  isDisabled: { type: Boolean, default: false },
+  isDisabled: { type: Boolean, default: undefined },
   isLoading: { type: Boolean, default: false },
   disableAnimation: { type: Boolean, default: false },
   disableRipple: { type: Boolean, default: false }

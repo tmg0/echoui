@@ -15,9 +15,9 @@ export type UseButtonProps = Props
 export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => {
   const attrs = useAttrs()
   const groupContext = useButtonGroupContext()
-  const isInGroup = !!groupContext?.isInGroup
+  const isInGroup = !!groupContext?.value?.isInGroup
 
-  const isDisabledProp = computed(() => groupContext?.isDisabled ?? false)
+  const isDisabledProp = computed(() => props.isDisabled ?? groupContext?.value?.isDisabled ?? false)
   const isDisabled = computed(() => isDisabledProp.value || props.isLoading)
 
   const { pressed: isPressed } = useMousePressed({ target: domRef })
@@ -29,11 +29,11 @@ export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => 
   })
 
   const styles = computed(() => button({
-    size: props.size ?? groupContext?.size,
-    color: props.color ?? groupContext?.color,
+    size: props.size ?? groupContext?.value?.size,
+    color: props.color ?? groupContext?.value?.color,
     variant: props.variant,
     radius: props.radius,
-    fullWidth: props.fullWidth ?? groupContext?.fullWidth ?? false,
+    fullWidth: props.fullWidth ?? groupContext?.value?.fullWidth ?? false,
     isDisabled: isDisabled.value,
     isInGroup,
     disableAnimation: props.disableAnimation,
