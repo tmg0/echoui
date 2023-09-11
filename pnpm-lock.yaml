@@ -1954,7 +1954,7 @@ packages:
       semver: 7.5.4
       simple-git: 3.19.1
       sirv: 2.0.3
-      unimport: 3.3.0
+      unimport: 3.3.0(rollup@3.28.1)
       vite: 4.4.9(@types/node@20.5.7)
       vite-plugin-inspect: 0.7.38(@nuxt/kit@3.7.1)(vite@4.4.9)
       vite-plugin-vue-inspector: 3.6.0(vite@4.4.9)
@@ -1984,14 +1984,14 @@ packages:
       ignore: 5.2.4
       jiti: 1.19.3
       knitwork: 1.0.0
-      mlly: 1.4.1
+      mlly: 1.4.2
       pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
       semver: 7.5.4
       ufo: 1.3.0
       unctx: 2.3.1
-      unimport: 3.2.0(rollup@3.28.1)
+      unimport: 3.3.0(rollup@3.28.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -2018,7 +2018,7 @@ packages:
       semver: 7.5.4
       ufo: 1.3.0
       unctx: 2.3.1
-      unimport: 3.3.0
+      unimport: 3.3.0(rollup@3.28.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -2051,7 +2051,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.4.3
       ufo: 1.3.0
-      unimport: 3.2.0(rollup@3.28.1)
+      unimport: 3.3.0(rollup@3.28.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -2070,7 +2070,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.4.3
       ufo: 1.3.0
-      unimport: 3.3.0
+      unimport: 3.3.0(rollup@3.28.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -2080,7 +2080,7 @@ packages:
     resolution: {integrity: sha512-Cj+4sXjO5pZNW2sX7Y+djYpf4pZwgYF3rV/YHLWIOq9nAjo2UcDXjh1z7qnhkoUkvJN3lHnvhnCNhfAioe6k/A==}
     hasBin: true
     dependencies:
-      '@nuxt/kit': 3.7.0
+      '@nuxt/kit': 3.7.1
       chalk: 5.3.0
       ci-info: 3.8.0
       consola: 3.2.3
@@ -2128,11 +2128,11 @@ packages:
       estree-walker: 3.0.3
       externality: 1.0.2
       fs-extra: 11.1.1
-      get-port-please: 3.0.2
+      get-port-please: 3.1.1
       h3: 1.8.1
       knitwork: 1.0.0
       magic-string: 0.30.3
-      mlly: 1.4.1
+      mlly: 1.4.2
       ohash: 1.1.3
       pathe: 1.1.1
       perfect-debounce: 1.0.0
@@ -6041,10 +6041,6 @@ packages:
       has-symbols: 1.0.3
     dev: true
 
-  /get-port-please@3.0.2:
-    resolution: {integrity: sha512-c14cAITf0E+uqdxGALvyYHwOL7UsnWcv3oDtgDAZksiVSGN87xlWVUWGZcmWQU3cICdaOxT+6LdQzUfK2ei1SA==}
-    dev: true
-
   /get-port-please@3.1.1:
     resolution: {integrity: sha512-3UBAyM3u4ZBVYDsxOQfJDxEa6XTbpBDrOjp4mf7ExFRt5BKs/QywQQiJsh2B+hxcZLSapWqCRvElUe8DnKcFHA==}
     dev: true
@@ -7238,7 +7234,7 @@ packages:
       clipboardy: 3.0.0
       consola: 3.2.3
       defu: 6.1.2
-      get-port-please: 3.0.2
+      get-port-please: 3.1.1
       h3: 1.8.1
       http-shutdown: 1.2.2
       jiti: 1.19.3
@@ -8500,7 +8496,7 @@ packages:
       listhen: 1.4.3
       magic-string: 0.30.3
       mime: 3.0.0
-      mlly: 1.4.1
+      mlly: 1.4.2
       mri: 1.2.0
       node-fetch-native: 1.4.0
       ofetch: 1.3.3
@@ -8522,7 +8518,7 @@ packages:
       uncrypto: 0.1.3
       unctx: 2.3.1
       unenv: 1.7.4
-      unimport: 3.2.0(rollup@3.28.1)
+      unimport: 3.3.0(rollup@3.28.1)
       unstorage: 1.9.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -8858,7 +8854,7 @@ packages:
       uncrypto: 0.1.3
       unctx: 2.3.1
       unenv: 1.7.4
-      unimport: 3.2.0(rollup@3.28.1)
+      unimport: 3.2.0
       unplugin: 1.4.0
       unplugin-vue-router: 0.6.4(vue-router@4.2.4)(vue@3.3.4)
       untyped: 1.4.0
@@ -11498,7 +11494,7 @@ packages:
       vfile: 6.0.1
     dev: true
 
-  /unimport@3.2.0(rollup@3.28.1):
+  /unimport@3.2.0:
     resolution: {integrity: sha512-9buxPxkNwxwxAlH/RfOFHxtQTUrlmBGi9Ai9HezY2yYbkoOhgJTYPI6+WqxI1EZphoM9cw1SHoCFRkXSb8/fjQ==}
     dependencies:
       '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
@@ -11506,7 +11502,7 @@ packages:
       fast-glob: 3.3.1
       local-pkg: 0.4.3
       magic-string: 0.30.3
-      mlly: 1.4.1
+      mlly: 1.4.2
       pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
@@ -11516,7 +11512,7 @@ packages:
       - rollup
     dev: true
 
-  /unimport@3.3.0:
+  /unimport@3.3.0(rollup@3.28.1):
     resolution: {integrity: sha512-3jhq3ZG5hFZzrWGDCpx83kjPzefP/EeuKkIO1T0MA4Zwj+dO/Og1mFvZ4aZ5WSDm0FVbbdVIRH1zKBG7c4wOpg==}
     dependencies:
       '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
@@ -11699,7 +11695,7 @@ packages:
       fast-glob: 3.3.1
       json5: 2.2.3
       local-pkg: 0.4.3
-      mlly: 1.4.1
+      mlly: 1.4.2
       pathe: 1.1.1
       scule: 1.0.0
       unplugin: 1.4.0
@@ -11933,7 +11929,7 @@ packages:
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
-      mlly: 1.4.1
+      mlly: 1.4.2
       pathe: 1.1.1
       picocolors: 1.0.0
       vite: 4.4.9(@types/node@20.5.7)
