@@ -13,7 +13,13 @@ const DynamicVueLiveDemo = defineAsyncComponent(() => {
 <template>
   <Tabs default-selected-key="preview" variant="underlined">
     <Tab key="preview" title="Preview">
-      <DynamicVueLiveDemo />
+      <Card>
+        <CardBody>
+          <div>
+            <DynamicVueLiveDemo />
+          </div>
+        </CardBody>
+      </Card>
     </Tab>
 
     <Tab key="code" title="Code">
