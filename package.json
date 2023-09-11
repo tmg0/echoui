@@ -23,7 +23,7 @@
     "@vue/babel-plugin-jsx": "^1.1.5",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.47.0",
-    "go-dude": "0.4.0-rc.2",
+    "go-dude": "0.4.0-rc.3",
     "prettier": "^3.0.2",
     "rimraf": "^5.0.1",
     "tsup": "^7.2.0",
