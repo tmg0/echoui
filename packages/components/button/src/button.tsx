@@ -28,10 +28,15 @@ const Button = defineComponent({
     const domRef = ref()
     const { Component, styles, ripples, spinnerSize, getButtonProps } = useButton(props, { emit, ref: domRef })
 
+    const spinner = <Spinner color="current" size={spinnerSize.value} />
+
     return () => (
       <Component ref={domRef} class={styles.value} {...getButtonProps.value}>
-        {props.isLoading && <Spinner color="current" size={spinnerSize.value} />}
+        {slots.startContent?.()}
+        {props.isLoading && props.spinnerPlacement === 'start' && spinner}
         {slots.default?.()}
+        {props.isLoading && props.spinnerPlacement === 'end' && spinner}
+        {slots.endContent?.()}
         {!props.disableRipple && <Ripple ripples={ripples.value} removeAfter={750} />}
       </Component>
     )

@@ -17,17 +17,8 @@ export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => 
   const groupContext = useButtonGroupContext()
   const isInGroup = !!groupContext?.isInGroup
 
-  const {
-    as,
-    size = groupContext?.size,
-    color = groupContext?.color,
-    variant,
-    radius,
-    fullWidth = groupContext?.fullWidth ?? false,
-    isDisabled = groupContext?.isDisabled ?? false,
-    disableAnimation,
-    isIconOnly
-  } = props
+  const isDisabledProp = computed(() => groupContext?.isDisabled ?? false)
+  const isDisabled = computed(() => isDisabledProp.value || props.isLoading)
 
   const { pressed: isPressed } = useMousePressed({ target: domRef })
 
@@ -38,21 +29,21 @@ export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => 
   })
 
   const styles = computed(() => button({
-    size,
-    color,
-    variant,
-    radius,
-    fullWidth,
-    isDisabled,
+    size: props.size ?? groupContext?.size,
+    color: props.color ?? groupContext?.color,
+    variant: props.variant,
+    radius: props.radius,
+    fullWidth: props.fullWidth ?? groupContext?.fullWidth ?? false,
+    isDisabled: isDisabled.value,
     isInGroup,
-    disableAnimation,
-    isIconOnly,
+    disableAnimation: props.disableAnimation,
+    isIconOnly: props.isIconOnly,
     className: attrs.class as string
   }))
 
   const { onClick: onRippleClickHandler, ripples } = useRipple()
 
-  const Component = as || 'button'
+  const Component = props.as || 'button'
 
   const onClick = (e: MouseEvent) => {
     emit('click')
@@ -61,7 +52,7 @@ export const useButton = (props: UseButtonProps, { emit, ref: domRef }: any) => 
   }
 
   const getButtonProps = computed(() => ({
-    'data-disabled': dataAttr(isDisabled),
+    'data-disabled': dataAttr(isDisabled.value),
     'data-pressed': dataAttr(isPressed.value),
     onClick
   }))
