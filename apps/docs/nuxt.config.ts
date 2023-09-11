@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     markdown: {
       tags: {
         h1: 'ProseH1',
+        h2: 'ProseH2',
+        h3: 'ProseH3',
         hr: 'ProseHr',
         p: 'ProseP'
       }
