@@ -15,19 +15,16 @@ const shiki = await getHighlighter({
 })
 
 const code = computed(() => shiki.codeToHtml(codes?.[props.files] ?? '', { lang: 'vue', theme: 'vitesse-dark' }))
-
 </script>
 
 <template>
   <Tabs default-selected-key="preview" variant="underlined">
     <Tab key="preview" title="Preview">
-      <Card>
-        <CardBody>
-          <div>
-            <DynamicVueLiveDemo />
-          </div>
-        </CardBody>
-      </Card>
+      <div class="relative z-10 w-full h-full border border-default-200 dark:border-default-100 rounded-lg px-2 py-4">
+        <div class="px-2 py-4">
+          <DynamicVueLiveDemo />
+        </div>
+      </div>
     </Tab>
 
     <Tab key="code" title="Code">
