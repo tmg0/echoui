@@ -6,20 +6,9 @@ import { dataAttr } from '@echoui/shared-utils'
 import { useRipple } from '@echoui/ripple'
 import type { SpinnerProps } from '@echoui/spinner'
 import { useButtonGroupContext } from './button-group-context'
+import type { ButtonProps } from './button'
 
-interface Props extends HTMLEchoUIProps<'button'> {
-  variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
-  size?: 'sm' | 'md' | 'lg'
-  spinnerPlacement?: 'start' | 'end'
-  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-  isLoading?: boolean
-  isDisabled?: boolean
-  disableAnimation?: boolean
-  disableRipple?: boolean
-  isIconOnly?: boolean
-  fullWidth?: boolean
-}
+interface Props extends HTMLEchoUIProps<'button'>, ButtonProps {}
 
 export type UseButtonProps = Props
 

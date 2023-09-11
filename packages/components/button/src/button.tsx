@@ -1,23 +1,23 @@
-import { defineComponent, type PropType, ref } from 'vue'
+import { defineComponent, type PropType, ref, type ExtractPropTypes } from 'vue'
 import { Spinner } from '@echoui/spinner'
 import { Ripple } from '@echoui/ripple'
-import { useButton, type UseButtonProps } from './use-button'
-
-export interface ButtonProps extends Omit<UseButtonProps, 'ref'> { }
+import { useButton } from './use-button'
 
 const props = {
-  variant: String as PropType<ButtonProps['variant']>,
-  color: String as PropType<ButtonProps['color']>,
-  size: { type: String as PropType<ButtonProps['size']>, default: undefined },
-  spinnerPlacement: String as PropType<ButtonProps['spinnerPlacement']>,
-  radius: String as PropType<ButtonProps['radius']>,
-  isLoading: Boolean as PropType<ButtonProps['isLoading']>,
-  isDisabled: { type: Boolean as PropType<ButtonProps['isDisabled']>, default: undefined },
-  disableAnimation: Boolean as PropType<ButtonProps['disableAnimation']>,
-  disableRipple: Boolean as PropType<ButtonProps['disableRipple']>,
-  isIconOnly: Boolean as PropType<ButtonProps['isIconOnly']>,
-  fullWidth: Boolean as PropType<ButtonProps['fullWidth']>
+  variant: { type: String as PropType<'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'>, default: undefined },
+  color: { type: String as PropType<'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'>, default: 'default' },
+  size: { type: String as PropType<'sm' | 'md' | 'lg'>, default: 'md' },
+  radius: { type: String as PropType<'none' | 'sm' | 'md' | 'lg' | 'full'>, default: undefined },
+  spinnerPlacement: { type: String as PropType<'start' | 'end'>, default: 'start' },
+  fullWidth: { type: Boolean, default: false },
+  isIconOnly: { type: Boolean, default: false },
+  isDisabled: { type: Boolean, default: false },
+  isLoading: { type: Boolean, default: false },
+  disableAnimation: { type: Boolean, default: false },
+  disableRipple: { type: Boolean, default: false }
 }
+
+export type ButtonProps = ExtractPropTypes<typeof props>
 
 const Button = defineComponent({
   props,
