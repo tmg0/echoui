@@ -7,6 +7,8 @@ description: "The Switch component is used as an alternative between checked and
 
 The Switch component is used as an alternative between checked and not checked states.
 
+---
+
 ## Usage
 
 :code-demo{files=/components/content/switch/usage.vue}
