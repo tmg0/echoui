@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
   content: {
+    documentDriven: true,
     markdown: {
       tags: {
         h1: 'ProseH1',
