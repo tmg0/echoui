@@ -65,7 +65,7 @@ You can customize the `Button` component by passing custom Tailwind CSS classes 
 
 :code-demo{files=/components/content/button/group.vue}
 
-## Group Disabled
+### Group Disabled
 
 The `ButtonGroup` component also accepts the `isDisabled` prop to disable all buttons inside it.
 
