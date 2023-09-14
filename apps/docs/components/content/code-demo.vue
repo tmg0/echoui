@@ -5,6 +5,9 @@ import { modules, codes } from '.'
 
 const props = defineProps<{ files: string }>()
 
+const domRef = ref()
+const selectedKey = ref('preview')
+
 const DynamicVueLiveDemo = defineAsyncComponent(() => {
   return modules[props.files]?.() as any
 })
@@ -15,10 +18,20 @@ const shiki = await getHighlighter({
 })
 
 const code = computed(() => shiki.codeToHtml(codes?.[props.files] ?? '', { lang: 'vue', theme: 'vitesse-dark' }))
+
+watch(selectedKey, async () => {
+  if (selectedKey.value === 'code') {
+    await nextTick()
+    const shadow = domRef.value
+    if (!shadow) { return }
+    const shadowRoot = shadow.shadowRoot ?? shadow.attachShadow({ mode: 'open' })
+    shadowRoot.innerHTML = code.value
+  }
+})
 </script>
 
 <template>
-  <Tabs default-selected-key="preview" variant="underlined">
+  <Tabs v-model:selected-key="selectedKey" variant="underlined">
     <Tab key="preview" title="Preview">
       <div class="relative z-10 w-full h-full border border-default-200 dark:border-default-100 rounded-lg px-2 py-4">
         <div class="px-2 py-4">
@@ -29,8 +42,8 @@ const code = computed(() => shiki.codeToHtml(codes?.[props.files] ?? '', { lang:
 
     <Tab key="code" title="Code">
       <Card>
-        <CardBody class="whitespace-pre-wrap bg-[#121212]">
-          <div v-html="code" />
+        <CardBody class="whitespace-pre-wrap py-1 bg-[#121212]">
+          <div ref="domRef" />
         </CardBody>
       </Card>
     </Tab>
