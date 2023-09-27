@@ -15,6 +15,7 @@
     "vue": ">=3.0.0"
   },
   "dependencies": {
+    "@echoui/shared-utils": "workspace:^",
     "@echoui/system": "workspace:^",
     "@nextui-org/theme": "^2.1.3"
   },
