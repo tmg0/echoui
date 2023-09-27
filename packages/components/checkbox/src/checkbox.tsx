@@ -1,4 +1,5 @@
-import { defineComponent, type ExtractPropTypes, type PropType } from 'vue'
+import { defineComponent, ref, type ExtractPropTypes, type PropType, toRefs } from 'vue'
+import { useVModel } from '@vueuse/core'
 import { VisuallyHidden } from '@echoui/visually-hidden'
 import { useCheckbox } from './use-checkbox'
 import { CheckboxIcon } from './checkbox-icon'
@@ -23,16 +24,22 @@ const props = {
 
 export type CheckboxProps = ExtractPropTypes<typeof props>
 
+const isUndefined = (value: any): value is undefined => typeof value === 'undefined'
+
 const Checkbox = defineComponent({
   props,
 
-  setup (props, { slots }) {
-    const { Component, getWrapperProps, getInputProps, getLabelProps, getIconProps } = useCheckbox(props)
+  setup (_props, { slots, emit }) {
+    const isSelected = isUndefined(_props.isSelected) ? ref(_props.defaultSelected ?? false) : useVModel(_props, 'isSelected', emit)
+
+    const props = { ...toRefs(_props), isSelected }
+
+    const { Component, getBaseProps, getWrapperProps, getInputProps, getLabelProps, getIconProps } = useCheckbox(props)
 
     const icon = slots.icon?.(getIconProps.value) ?? <CheckboxIcon {...getIconProps.value} />
 
     return () => (
-      <Component style={{ position: 'relative' }}>
+      <Component {...getBaseProps.value} style={{ position: 'relative' }}>
         <VisuallyHidden>
           <input {...getInputProps.value} />
         </VisuallyHidden>

@@ -1,10 +1,14 @@
 import { type HTMLEchoUIProps } from '@echoui/system'
-import { computed, ref, useAttrs } from 'vue'
+import { computed, ref, useAttrs, type Ref } from 'vue'
 import { checkbox } from '@nextui-org/theme'
-import { clsx } from '@echoui/shared-utils'
+import { clsx, dataAttr } from '@echoui/shared-utils'
 import type { CheckboxProps } from './checkbox'
 
-export interface UseCheckboxProps extends HTMLEchoUIProps<'label'>, CheckboxProps { }
+type ToRefs<T> = {
+  [K in keyof T]: Ref<T[K]>
+}
+
+export interface UseCheckboxProps extends HTMLEchoUIProps<'label'>, ToRefs<CheckboxProps> { }
 
 export type CheckboxIconProps = {
   'data-checked': string;
@@ -16,13 +20,35 @@ export type CheckboxIconProps = {
 
 export const useCheckbox = (props: UseCheckboxProps) => {
   const attrs = useAttrs()
+  const domRef = ref()
   const inputRef = ref()
   const Component = props.as || 'label'
 
-  const slots = computed(() => checkbox(props))
+  const slots = computed(() => checkbox({
+    color: props.color.value,
+    size: props.size.value,
+    radius: props.radius?.value,
+    lineThrough: props.lineThrough.value,
+    isDisabled: props.isDisabled.value,
+    disableAnimation: props.disableAnimation.value
+  }))
+
+  const onClick = () => {
+    if (!props.isSelected) { return }
+    props.isSelected.value = !props.isSelected.value
+  }
+
+  const getBaseProps = computed(() => ({
+    ref: domRef,
+    class: slots.value.base({ class: attrs.class as string }),
+    'data-disabled': dataAttr(props.isDisabled.value),
+    'data-selected': dataAttr(props.isSelected?.value || props.isIndeterminate?.value),
+    'data-invalid': dataAttr(props.isInvalid.value),
+    'data-indeterminate': dataAttr(props.isIndeterminate?.value),
+    onClick
+  }))
 
   const getWrapperProps = computed(() => ({
-    ...props,
     'aria-hidden': true,
     class: clsx(slots.value.wrapper({ class: clsx(attrs.class) }))
   }))
@@ -36,13 +62,13 @@ export const useCheckbox = (props: UseCheckboxProps) => {
   }))
 
   const getIconProps = computed(() => ({
-    isSelected: props.isSelected,
-    isIndeterminate: !!props.isIndeterminate,
-    disableAnimation: !!props.disableAnimation,
+    isSelected: props.isSelected?.value,
+    isIndeterminate: !!props.isIndeterminate?.value,
+    disableAnimation: !!props.disableAnimation.value,
     class: slots.value.icon({})
   }) as CheckboxIconProps)
 
-  return { Component, getWrapperProps, getInputProps, getLabelProps, getIconProps }
+  return { Component, getBaseProps, getWrapperProps, getInputProps, getLabelProps, getIconProps }
 }
 
 export type UseCheckboxReturn = ReturnType<typeof useCheckbox>
