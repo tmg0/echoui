@@ -1,4 +1,5 @@
 import { defineComponent, type ExtractPropTypes, type PropType } from 'vue'
+import { VisuallyHidden } from '@echoui/visually-hidden'
 import { useCheckbox } from './use-checkbox'
 import { CheckboxIcon } from './checkbox-icon'
 
@@ -31,8 +32,10 @@ const Checkbox = defineComponent({
     const icon = slots.icon?.(getIconProps.value) ?? <CheckboxIcon {...getIconProps.value} />
 
     return () => (
-      <Component>
-        <input {...getInputProps.value} style={{ visibility: 'hidden' }} />
+      <Component style={{ position: 'relative' }}>
+        <VisuallyHidden>
+          <input {...getInputProps.value} />
+        </VisuallyHidden>
         <span {...getWrapperProps.value}>{icon}</span>
         {slots.default && <span {...getLabelProps.value}>{slots.default?.()}</span>}
       </Component>

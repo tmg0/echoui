@@ -15,6 +15,7 @@
     "@echoui/avatar": "workspace:^",
     "@echoui/button": "workspace:^0.0.1",
     "@echoui/card": "workspace:^",
+    "@echoui/checkbox": "workspace:^",
     "@echoui/chip": "workspace:^0.0.1",
     "@echoui/divider": "workspace:^",
     "@echoui/image": "workspace:^",
