@@ -5,7 +5,7 @@ definePageMeta({
   redirect: { name: 'docs-components-button' }
 })
 
-const headings = computed(() => toc.value.links)
+const headings = computed(() => toc.value?.links ?? [])
 </script>
 
 <template>

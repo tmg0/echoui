@@ -2,7 +2,7 @@
 import { Button, Link, Navbar as EchoUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle } from '@echoui/vue'
 
 const menus = [
-  { label: 'Docs', path: '/docs/guide' },
+  { label: 'Docs', path: '/docs/guide/introduction' },
   { label: 'Components', key: 'components', path: '/docs/components/avatar' },
   { label: 'Blog', path: '/blog' },
   { label: 'Figma', path: '/figma' }
