@@ -24,8 +24,8 @@ importers:
         specifier: ^8.47.0
         version: 8.48.0
       go-dude:
-        specifier: 0.4.0-rc.3
-        version: 0.4.0-rc.3
+        specifier: 0.4.0-rc.6
+        version: 0.4.0-rc.6
       prettier:
         specifier: ^3.0.2
         version: 3.0.2
@@ -3079,11 +3079,11 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.22.11
-      '@babel/helper-module-imports': 7.22.5
+      '@babel/helper-module-imports': 7.22.15
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.11)
-      '@babel/template': 7.22.5
-      '@babel/traverse': 7.22.11
-      '@babel/types': 7.22.11
+      '@babel/template': 7.22.15
+      '@babel/traverse': 7.23.0
+      '@babel/types': 7.23.0
       '@vue/babel-helper-vue-transform-on': 1.1.5
       camelcase: 6.3.0
       html-tags: 3.3.1
@@ -5989,8 +5989,8 @@ packages:
       merge2: 1.4.1
       slash: 4.0.0
 
-  /go-dude@0.4.0-rc.3:
-    resolution: {integrity: sha512-VzJheemqdY7UCOhQs1E5lPCjeYTpgbviInQtgK9dSZeq5HA7hktBX0qHtWbQx7wEB6BoITPBtKiUiqKXp15ZLA==}
+  /go-dude@0.4.0-rc.6:
+    resolution: {integrity: sha512-pfs27RrUfMAFoil4CP2K5jqQ9L7kH04O1m4vsOrQrjYAqx/aWJa7GFJFExVLp3wimSpkdI05IXiZWS5Qr0I/dA==}
     hasBin: true
     dependencies:
       c12: 1.4.2
