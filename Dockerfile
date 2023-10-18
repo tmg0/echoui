@@ -8,4 +8,4 @@ WORKDIR /root
 COPY --from=build /root/apps/docs/.output /root
 EXPOSE 3000
 
-CMD ["node", "/root/index.mjs"]
+CMD ["node", "/root/server/index.mjs"]
