@@ -11,4 +11,6 @@ WORKDIR /root
 
 COPY --from=build /root/apps/docs/.output/server /root/apps/docs/.output/server
 
+EXPOSE 3000
+
 CMD ["node", "/root/apps/docs/.output/server/index.mjs"]
