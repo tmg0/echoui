@@ -56,7 +56,7 @@ const isSelected = computed({
     >
       <CardBody>
         <div class="bg-[#11181c] dark:bg-[#ecedee] w-[60px] h-[60px] rounded-lg flex items-center justify-center">
-          <EchouiLogo :size="60" />
+          <EchouiLogo :size="42" />
         </div>
       </CardBody>
     </Card>
